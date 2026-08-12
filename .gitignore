@@ -1,0 +1,35 @@
+# Build artifacts
+bin/
+obj/
+x64/
+Debug/
+Release/
+*.exe
+*.dll
+*.pdb
+*.lib
+*.sys
+*.obj
+*.pch
+*.tlog
+*.lastbuildstate
+*.idb
+*.iobj
+*.ipdb
+
+# Large dump files
+*.dmp
+*.log
+*.txt
+
+# IDE files
+.vs/
+*.sln.xml
+*.user
+*.suo
+*.cache
+
+# Tools and debuggers
+/tools/
+/VulnDriver/tools/
+/NandoKernel/tools/

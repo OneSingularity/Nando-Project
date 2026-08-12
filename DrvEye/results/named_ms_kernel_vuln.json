@@ -1,0 +1,454 @@
+[
+  {
+    "file": "andappsvc2_64.sys",
+    "sha256": "09a5ca7673f3734f8987b2b4d69255ffaa05cd2e77cf2d6f72a2d6a3c91139fb",
+    "company": "",
+    "product": "",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | \u682a\u5f0f\u4f1a\u793e\uff24\uff2e\uff30\u30cf\u30a4\u30d1\u30fc\u30c6\u30c3\u30af",
+    "hvci": "TRUE",
+    "ver": "TRUE",
+    "tags": [
+      "deresute64.sys",
+      "andappsvc2_64.sys",
+      "usrdrv018064.sys",
+      "usrdrv017764.sys",
+      "usrdrv017864.sys",
+      "wfs64.sys",
+      "usrdrv118064.sys",
+      "Umamusume64_2.sys"
+    ],
+    "ref": "https://x.com/nextronresearch/status/2051653303893680456",
+    "desc": "Create and start driver"
+  },
+  {
+    "file": "BS_HWMIO64_W10.sys",
+    "sha256": "1d0397c263d51e9fc95bcc8baf98d1a853e1c0401cd0e27c7bf5da3fba1c93a8",
+    "company": "BIOSTAR Group",
+    "product": "BIOSTAR I/O driver",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": "FALSE",
+    "ver": "TRUE",
+    "tags": [
+      "BS_HWMIO64_W10.sys"
+    ],
+    "ref": "https://github.com/eclypsium/Screwed-Drivers/blob/master/DRIVERS.md",
+    "desc": ""
+  },
+  {
+    "file": "BS_RCIO64.sys",
+    "sha256": "d205286bffdf09bc033c09e95c519c1c267b40c2ee8bab703c6a2d86741ccd3e",
+    "company": "BIOSTAR Group",
+    "product": "BIOSTAR I/O driver",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": "FALSE",
+    "ver": "TRUE",
+    "tags": [
+      "BS_RCIO64.sys"
+    ],
+    "ref": "https://github.com/jbaines-r7/dellicious",
+    "desc": ""
+  },
+  {
+    "file": "CorsairLLAccess64.sys",
+    "sha256": "000547560fea0dd4b477eb28bf781ea67bf83c748945ce8923f90fdd14eb7a4b",
+    "company": "Corsair Memory, Inc.",
+    "product": "Corsair LL Access",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": "TRUE",
+    "ver": "TRUE",
+    "tags": [
+      "CorsairLLAccess64.sys"
+    ],
+    "ref": "https://github.com/elastic/protections-artifacts/search?q=VulnDriver",
+    "desc": ""
+  },
+  {
+    "file": "DBUtilDrv2.sys",
+    "sha256": "2e6b339597a89e875f175023ed952aaac64e9d20d457bbc07acf1586e7fe2df8",
+    "company": "",
+    "product": "",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2012 | Microsoft Root Certificate Authority 2010",
+    "hvci": "TRUE",
+    "ver": "TRUE",
+    "tags": [
+      "DBUtilDrv2.sys"
+    ],
+    "ref": "https://github.com/jbaines-r7/dellicious",
+    "desc": "Dell DBUtilDrv2.sys versions 2.5, 2.6, and 2.7 all contain a write-what-where condition allowing kernel memory read/write. Dell released v2.7 as a remediation for CVE-2021-36276 bu"
+  },
+  {
+    "file": "DBUtilDrv2.sys",
+    "sha256": "71fe5af0f1564dc187eea8d59c0fbc897712afa07d18316d2080330ba17cf009",
+    "company": "Dell",
+    "product": "DBUtil",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2012 | Microsoft Root Certificate Authority 2010",
+    "hvci": "TRUE",
+    "ver": "TRUE",
+    "tags": [
+      "DBUtilDrv2.sys"
+    ],
+    "ref": "https://github.com/jbaines-r7/dellicious",
+    "desc": "Dell DBUtilDrv2.sys versions 2.5, 2.6, and 2.7 all contain a write-what-where condition allowing kernel memory read/write. Dell released v2.7 as a remediation for CVE-2021-36276 bu"
+  },
+  {
+    "file": "deresute64.sys",
+    "sha256": "52591fc20b01ab714543e97b4fcbcfad630d50a4725d98da6f11e9bd5b1cf5bb",
+    "company": "",
+    "product": "",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | \u682a\u5f0f\u4f1a\u793e\uff24\uff2e\uff30\u30cf\u30a4\u30d1\u30fc\u30c6\u30c3\u30af",
+    "hvci": "TRUE",
+    "ver": "TRUE",
+    "tags": [
+      "deresute64.sys",
+      "andappsvc2_64.sys",
+      "usrdrv018064.sys",
+      "usrdrv017764.sys",
+      "usrdrv017864.sys",
+      "wfs64.sys",
+      "usrdrv118064.sys",
+      "Umamusume64_2.sys"
+    ],
+    "ref": "https://x.com/nextronresearch/status/2051653303893680456",
+    "desc": "Create and start driver"
+  },
+  {
+    "file": "echo_driver.sys",
+    "sha256": "ea3c5569405ed02ec24298534a983bcb5de113c18bc3fd01a4dd0b5839cd17b9",
+    "company": "",
+    "product": "",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher",
+    "hvci": "FALSE",
+    "ver": "TRUE",
+    "tags": [
+      "echo_driver.sys"
+    ],
+    "ref": "https://ioctl.fail/echo-ac-writeup/",
+    "desc": "Bad access controls in Inspect Element Ltd.'s echo_driver.sys allows attacker to gain arbitrary memory read and write, which allows for easy Privilege Escalation via Token Theft."
+  },
+  {
+    "file": "EneTechIo64.sys",
+    "sha256": "06bda5a1594f7121acd2efe38ccb617fbc078bb9a70b665a5f5efd70e3013f50",
+    "company": "",
+    "product": "",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": "FALSE",
+    "ver": "TRUE",
+    "tags": [
+      "EneTechIo64.sys"
+    ],
+    "ref": "https://github.com/hfiref0x/KDU/releases/tag/v1.2.0",
+    "desc": ""
+  },
+  {
+    "file": "LHA.sys",
+    "sha256": "e75714f8e0ff45605f6fc7689a1a89c7dcd34aab66c6131c63fefaca584539cf",
+    "company": "LG Electronics Inc.",
+    "product": "Microsoft\u00ae Windows\u00ae Operating System",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": "FALSE",
+    "ver": "TRUE",
+    "tags": [
+      "LHA.sys"
+    ],
+    "ref": "https://github.com/elastic/protections-artifacts/search?q=VulnDriver",
+    "desc": ""
+  },
+  {
+    "file": "libnicm.sys",
+    "sha256": "95d50c69cdbf10c9c9d61e64fe864ac91e6f6caa637d128eb20e1d3510e776d3",
+    "company": "Micro Focus",
+    "product": "Micro Focus XTier",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": "FALSE",
+    "ver": "TRUE",
+    "tags": [
+      "libnicm.sys"
+    ],
+    "ref": "https://github.com/elastic/protections-artifacts/search?q=VulnDriver",
+    "desc": ""
+  },
+  {
+    "file": "MsIo64.sys",
+    "sha256": "a7261f13f11c3b845c27cfeeb1cdc6a9400090cebd8e5adbf8c506c1fd9811de",
+    "company": "MICSYS",
+    "product": "MsIo64 Driver Version 1.3",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher",
+    "hvci": null,
+    "ver": "TRUE",
+    "tags": [
+      "MsIo64.sys"
+    ],
+    "ref": "Internal Research",
+    "desc": ""
+  },
+  {
+    "file": "MsIo64.sys",
+    "sha256": "43ba8d96d5e8e54cab59d82d495eeca730eeb16e4743ed134cdd495c51a4fc89",
+    "company": "MICSYS Technology Co., LTd",
+    "product": "MsIo64 Driver Version 1.1",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": "FALSE",
+    "ver": "TRUE",
+    "tags": [
+      "MsIo64.sys"
+    ],
+    "ref": "https://www.matteomalvica.com/blog/2020/09/24/weaponizing-cve-2020-17382/",
+    "desc": "The MSI AmbientLink MsIo64 driver 1.0.0.8 has a Buffer Overflow (0x80102040, 0x80102044, 0x80102050,and 0x80102054)"
+  },
+  {
+    "file": "piddrv64.sys",
+    "sha256": "b03f26009de2e8eabfcf6152f49b02a55c5e5d0f73e01d48f5a745f93ce93a29",
+    "company": "",
+    "product": "",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2012 | Microsoft Root Certificate Authority 2010",
+    "hvci": "FALSE",
+    "ver": "TRUE",
+    "tags": [
+      "piddrv64.sys"
+    ],
+    "ref": "https://github.com/eclypsium/Screwed-Drivers/blob/master/DRIVERS.md",
+    "desc": ""
+  },
+  {
+    "file": "ProcessCtr.sys",
+    "sha256": "d64eeb940daffdc8327fb18b160c20e539088cf8407813655f59efa9fdf0022e",
+    "company": "EsafeNet",
+    "product": "ProcessCtrl",
+    "sig": "\u5317\u4eac\u4ebf\u8d5b\u901a\u79d1\u6280\u53d1\u5c55\u6709\u9650\u8d23\u4efb\u516c\u53f8 | Microsoft Windows Hardware Compatibility Publisher",
+    "hvci": null,
+    "ver": "TRUE",
+    "tags": [
+      "ProcessCtr.sys"
+    ],
+    "ref": "https://github.com/The-Sword-of-Constantine/UsingBYOVD/blob/master/BYOVD/ProcessCtr.cpp",
+    "desc": "EsafeNet ProcessCtr / ProcessCtrl64.sys creates a device object reachable by local callers and exposes process-control IOCTL paths. Public research documents a vulnerable process-t"
+  },
+  {
+    "file": "procexp.Sys",
+    "sha256": "440883cd9d6a76db5e53517d0ec7fe13d5a50d2f6a7f91ecfc863bc3490e4f5c",
+    "company": "Sysinternals - www.sysinternals.com",
+    "product": "Process Explorer",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2012 | Microsoft Root Certificate Authority 2010",
+    "hvci": "FALSE",
+    "ver": "TRUE",
+    "tags": [
+      "procexp.Sys"
+    ],
+    "ref": "Internal Research",
+    "desc": ""
+  },
+  {
+    "file": "QIOMem.sys",
+    "sha256": "6abd8d0d541bcf9e257c65122216b1d2ae92cbf8a3a3cb7ce340846e66c449ca",
+    "company": "TOSHIBA",
+    "product": "",
+    "sig": "WDKTestCert 1,130752733198717037 | Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2012 | Microsoft Root Certificate Authority 2010",
+    "hvci": null,
+    "ver": "TRUE",
+    "tags": [
+      "QIOMem.sys"
+    ],
+    "ref": "https://github.com/valium007/qiomem",
+    "desc": "QIOMem.sys is the Generic IO & Memory Access driver included with Toshiba and Dynabook password utilities. It binds to ACPI\\QCI0701; on systems without that firmware device, the pu"
+  },
+  {
+    "file": "shimano32.sys",
+    "sha256": "e8b1a0ddc7a4404eb3c46217e07b5ed91723f44464a6ef589634aeb4fb8f5666",
+    "company": "",
+    "product": "",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": null,
+    "ver": "TRUE",
+    "tags": [
+      "shimano32.sys",
+      "shimano64.sys"
+    ],
+    "ref": "https://github.com/magicsword-io/LOLDrivers/issues/163",
+    "desc": "HyperTech DNP CrackProof DRM kernel drivers (32-bit and 64-bit variants) from Shimano E-TUBE Project. Expose EPROCESS manipulation IOCTLs (0xAA013880, 0xAA013884, 0xAA013888) simil"
+  },
+  {
+    "file": "shimano64.sys",
+    "sha256": "e3a1f0d967335c8a080a5b1e7e3a06a61f6cea39739cda3ebab11d2908713d80",
+    "company": "",
+    "product": "",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": null,
+    "ver": "TRUE",
+    "tags": [
+      "shimano32.sys",
+      "shimano64.sys"
+    ],
+    "ref": "https://github.com/magicsword-io/LOLDrivers/issues/163",
+    "desc": "HyperTech DNP CrackProof DRM kernel drivers (32-bit and 64-bit variants) from Shimano E-TUBE Project. Expose EPROCESS manipulation IOCTLs (0xAA013880, 0xAA013884, 0xAA013888) simil"
+  },
+  {
+    "file": "SIVX64.sys",
+    "sha256": "33903e8fa9f0a2acaa4784d645e309b0bd780693824b6c2c5fef257238c77478",
+    "company": "Ray Hinchliffe",
+    "product": "SIVDRIVER",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014",
+    "hvci": "TRUE",
+    "ver": "TRUE",
+    "tags": [
+      "SIVX64.sys"
+    ],
+    "ref": "https://github.com/magicsword-io/LOLDrivers/issues/287",
+    "desc": "Ray Hinchliffe SIV (System Information Viewer) SIVX64.sys v5.85 dynamically resolves MmMapIoSpace and MmMapIoSpaceEx via MmGetSystemRoutineAddress at runtime (neither appears in th"
+  },
+  {
+    "file": "STProcessMonitor.sys",
+    "sha256": "5b4f59236a9b950bcd5191b35d19125f60cfb9e1a1e1aa2e4f914b6745dde9df",
+    "company": "Safetica Technologies",
+    "product": "Safetica",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2012 | Microsoft Root Certificate Authority 2010",
+    "hvci": null,
+    "ver": "TRUE",
+    "tags": [
+      "STProcessMonitor.sys",
+      "ProcessMonitorDriver.sys",
+      "STProcessMonitor_v114.sys"
+    ],
+    "ref": "https://www.cve.org/CVERecord?id=CVE-2025-70795",
+    "desc": "Safetica STProcessMonitor / ProcessMonitorDriver.sys exposes process-termination functionality through vulnerable IOCTL paths documented in public BYOVD research. The tracked sampl"
+  },
+  {
+    "file": "Umamusume64_2.sys",
+    "sha256": "079842b1c4fae65b5c6af3e75a7305a263865cd033696a5a2fe7ea707e0c3d71",
+    "company": "",
+    "product": "",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | \u682a\u5f0f\u4f1a\u793e\uff24\uff2e\uff30\u30cf\u30a4\u30d1\u30fc\u30c6\u30c3\u30af",
+    "hvci": "TRUE",
+    "ver": "TRUE",
+    "tags": [
+      "deresute64.sys",
+      "andappsvc2_64.sys",
+      "usrdrv018064.sys",
+      "usrdrv017764.sys",
+      "usrdrv017864.sys",
+      "wfs64.sys",
+      "usrdrv118064.sys",
+      "Umamusume64_2.sys"
+    ],
+    "ref": "https://x.com/nextronresearch/status/2051653303893680456",
+    "desc": "Create and start driver"
+  },
+  {
+    "file": "usrdrv017764.sys",
+    "sha256": "64035e86735d0c01e0eb0862def6a48f012ec0a8e701874092ee1506ab65d273",
+    "company": "",
+    "product": "",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | \u682a\u5f0f\u4f1a\u793e\uff24\uff2e\uff30\u30cf\u30a4\u30d1\u30fc\u30c6\u30c3\u30af",
+    "hvci": "TRUE",
+    "ver": "TRUE",
+    "tags": [
+      "deresute64.sys",
+      "andappsvc2_64.sys",
+      "usrdrv018064.sys",
+      "usrdrv017764.sys",
+      "usrdrv017864.sys",
+      "wfs64.sys",
+      "usrdrv118064.sys",
+      "Umamusume64_2.sys"
+    ],
+    "ref": "https://x.com/nextronresearch/status/2051653303893680456",
+    "desc": "Create and start driver"
+  },
+  {
+    "file": "usrdrv017864.sys",
+    "sha256": "65b2956b1f1f26136b692d91de8ad98d6590b7f5b94d0acc88bbc61f8228a579",
+    "company": "",
+    "product": "",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | \u682a\u5f0f\u4f1a\u793e\uff24\uff2e\uff30\u30cf\u30a4\u30d1\u30fc\u30c6\u30c3\u30af",
+    "hvci": "TRUE",
+    "ver": "TRUE",
+    "tags": [
+      "deresute64.sys",
+      "andappsvc2_64.sys",
+      "usrdrv018064.sys",
+      "usrdrv017764.sys",
+      "usrdrv017864.sys",
+      "wfs64.sys",
+      "usrdrv118064.sys",
+      "Umamusume64_2.sys"
+    ],
+    "ref": "https://x.com/nextronresearch/status/2051653303893680456",
+    "desc": "Create and start driver"
+  },
+  {
+    "file": "usrdrv018064.sys",
+    "sha256": "1f280d67ff50607e1435b1c10f67c633d681801bcad0d8870128b3698c10634d",
+    "company": "",
+    "product": "",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | \u682a\u5f0f\u4f1a\u793e\uff24\uff2e\uff30\u30cf\u30a4\u30d1\u30fc\u30c6\u30c3\u30af",
+    "hvci": "TRUE",
+    "ver": "TRUE",
+    "tags": [
+      "deresute64.sys",
+      "andappsvc2_64.sys",
+      "usrdrv018064.sys",
+      "usrdrv017764.sys",
+      "usrdrv017864.sys",
+      "wfs64.sys",
+      "usrdrv118064.sys",
+      "Umamusume64_2.sys"
+    ],
+    "ref": "https://x.com/nextronresearch/status/2051653303893680456",
+    "desc": "Create and start driver"
+  },
+  {
+    "file": "usrdrv118064.sys",
+    "sha256": "79c2d06072e004639ea3b27c405d5cbb50a0af3531b743521c2b4a42557cc26f",
+    "company": "",
+    "product": "",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | \u682a\u5f0f\u4f1a\u793e\uff24\uff2e\uff30\u30cf\u30a4\u30d1\u30fc\u30c6\u30c3\u30af",
+    "hvci": "TRUE",
+    "ver": "TRUE",
+    "tags": [
+      "deresute64.sys",
+      "andappsvc2_64.sys",
+      "usrdrv018064.sys",
+      "usrdrv017764.sys",
+      "usrdrv017864.sys",
+      "wfs64.sys",
+      "usrdrv118064.sys",
+      "Umamusume64_2.sys"
+    ],
+    "ref": "https://x.com/nextronresearch/status/2051653303893680456",
+    "desc": "Create and start driver"
+  },
+  {
+    "file": "wfs64.sys",
+    "sha256": "740025dd6d222bc08b925692a6ef3bd5af86ecd030a8e8cef68b09f5da761fb2",
+    "company": "",
+    "product": "",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | \u682a\u5f0f\u4f1a\u793e\uff24\uff2e\uff30\u30cf\u30a4\u30d1\u30fc\u30c6\u30c3\u30af",
+    "hvci": "TRUE",
+    "ver": "TRUE",
+    "tags": [
+      "deresute64.sys",
+      "andappsvc2_64.sys",
+      "usrdrv018064.sys",
+      "usrdrv017764.sys",
+      "usrdrv017864.sys",
+      "wfs64.sys",
+      "usrdrv118064.sys",
+      "Umamusume64_2.sys"
+    ],
+    "ref": "https://x.com/nextronresearch/status/2051653303893680456",
+    "desc": "Create and start driver"
+  },
+  {
+    "file": "winio64.sys",
+    "sha256": "9fc29480407e5179aa8ea41682409b4ea33f1a42026277613d6484e5419de374",
+    "company": "",
+    "product": "",
+    "sig": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": "FALSE",
+    "ver": "TRUE",
+    "tags": [
+      "winio64.sys"
+    ],
+    "ref": "https://github.com/elastic/protections-artifacts/search?q=VulnDriver",
+    "desc": ""
+  }
+]

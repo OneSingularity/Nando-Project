@@ -1,0 +1,934 @@
+[
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "Netfilter.sys"
+    ],
+    "filename": "",
+    "sha256": "22da5a055b7b17c69def9f5af54e257c751507e7b6b9a835fcf6245ab90ae750",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "Netfilter.sys"
+    ],
+    "filename": "",
+    "sha256": "f3efcf47681d9f96afcbc843a241c21a643b173c48270446f6fe634991a57847",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "Netfilter.sys"
+    ],
+    "filename": "",
+    "sha256": "bbc58fd69ce5fed6691dd8d2084e9b728add808ffd5ea8b42ac284b686f77d9a",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "Netfilter.sys"
+    ],
+    "filename": "",
+    "sha256": "04a269dd0a03e32e5b2a1c8ab0768791962e040d080d44dc44dab01dd7954f2b",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "Netfilter.sys"
+    ],
+    "filename": "",
+    "sha256": "40c45c9b1c764777096b59f99ae524cbd25b88c805187e615c3ed6840f3d4c15",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "Netfilter.sys"
+    ],
+    "filename": "",
+    "sha256": "f83c357106a7d1d055b5cb75c8414aa3219354deb16ae9ee7efe8ee4c8c670ca",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "Netfilter.sys"
+    ],
+    "filename": "",
+    "sha256": "24ea733bae1b8722841fb4c6cead93c4c4f0b1248ca9a21601b1ce6b95b06864",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "Netfilter.sys"
+    ],
+    "filename": "",
+    "sha256": "8249e9c0ac0840a36d9a5b9ff3e217198a2f533159acd4bf3d9b0132cc079870",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "Netfilter.sys"
+    ],
+    "filename": "",
+    "sha256": "63d61549030fcf46ff1dc138122580b4364f0fe99e6b068bc6a3d6903656aff0",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "Netfilter.sys"
+    ],
+    "filename": "",
+    "sha256": "16b6be03495a4f4cf394194566bb02061fba2256cc04dcbde5aa6a17e41b7650",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "Netfilter.sys"
+    ],
+    "filename": "",
+    "sha256": "e0afb8b937a5907fbe55a1d1cc7574e9304007ef33fa80ff3896e997a1beaf37",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "mhyprotrpg.sys"
+    ],
+    "filename": "",
+    "sha256": "8bf84bed9b5fa4576182c84d2f31679dc472acd0f83c9813498e9f71ed9fef3e",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "mhyprotnap.sys"
+    ],
+    "filename": "",
+    "sha256": "40263b08b3c3659529ab605d1daa3033db0fdc4b19c26aa375be0c19686807e6",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "asio.sys",
+      "AsIO32.sys",
+      "AsIO3.sys",
+      "AsIO3_64.sys",
+      "AsIO2.sys"
+    ],
+    "filename": "",
+    "sha256": "707b4b5f5c4585156d8a4d8c39cf26729f5ad05d7f77b17f48e670e808e3e6a0",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "Internal Research",
+      "https://github.com/namazso/physmem_drivers"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "asio.sys",
+      "AsIO32.sys",
+      "AsIO3.sys",
+      "AsIO3_64.sys",
+      "AsIO2.sys"
+    ],
+    "filename": "",
+    "sha256": "52a90fd1546c068b92add52c29fbb8a87d472a57e609146bbcb34862f9dcec15",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "Internal Research",
+      "https://github.com/namazso/physmem_drivers"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "asio.sys",
+      "AsIO32.sys",
+      "AsIO3.sys",
+      "AsIO3_64.sys",
+      "AsIO2.sys"
+    ],
+    "filename": "",
+    "sha256": "2d36642135166bbb296624dca878925963c7da785e42e940f02d01beb7c477d5",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "Internal Research",
+      "https://github.com/namazso/physmem_drivers"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "dellinstrumentation.sys"
+    ],
+    "filename": "",
+    "sha256": "bc2606740e4648c3732541db929f2e02ea8567520d35de57c671e93c71e632f3",
+    "company": "Dell",
+    "product": "DellInstrumentation",
+    "signature": "",
+    "hvci": null,
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://dor00tkit.github.io/Dor00tkit/posts/from-admin-to-kernel-one-year-one-driver-zero-attention/"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "mhyprot3.sys"
+    ],
+    "filename": "",
+    "sha256": "7fd90500b57f9ac959c87f713fe9ca59e669e6e1512f77fccb6a75cdc0dfee8e",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "mhyprot3.sys"
+    ],
+    "filename": "",
+    "sha256": "c3d479d7efd0f6b502d6829b893711bdd51aac07d66326b41ef5451bafdfcb29",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "mhyprot3.sys"
+    ],
+    "filename": "",
+    "sha256": "24e70c87d58fa5771f02b9ddf0d8870cba6b26e35c6455a2c77f482e2080d3e9",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "mhyprot3.sys"
+    ],
+    "filename": "",
+    "sha256": "b531f0a11ca481d5125c93c977325e135a04058019f939169ce3cdedaddd422d",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "fd3b7234419fafc9bdd533f48896ed73_b816c5cd.sys"
+    ],
+    "filename": "",
+    "sha256": "274340f7185a0cc047d82ecfb2cce5bd18764ee558b5227894565c2f9fe9f6ab",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "The criminals signed their AV-killer malware, closely related to one known as BURNTCIGAR, with a legitimate WHCP certificate",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://news.sophos.com/en-us/2022/12/13/signed-driver-malware-moves-up-the-software-trust-chain/",
+      "https://github.com/magicsword-io/LOLDrivers/issues/114"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "Blackbone.sys"
+    ],
+    "filename": "",
+    "sha256": "0856a1da15b2b3e8999bf9fc51bbdedd4051e21fab1302e2ce766180b4931d86",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "netfilterdrv.sys"
+    ],
+    "filename": "",
+    "sha256": "5bdba1561ec5b23b1d56ea8cee411147d1526595f03a9281166a563b3641fa2a",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "netfilterdrv.sys"
+    ],
+    "filename": "",
+    "sha256": "70b63dfc3ed2b89a4eb8a0aa6c26885f460e5686d21c9d32413df0cdc5f962c7",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "netfilterdrv.sys"
+    ],
+    "filename": "",
+    "sha256": "1aa8ba45f9524847e2a36c0dc6fd80162923e88dc1be217dde2fb5894c65ff43",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "netfilterdrv.sys"
+    ],
+    "filename": "",
+    "sha256": "115034373fc0ec8f75fb075b7a7011b603259ecc0aca271445e559b5404a1406",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules"
+    ]
+  },
+  {
+    "category": "malicious",
+    "verified": "TRUE",
+    "tags": [
+      "fur.sys"
+    ],
+    "filename": "",
+    "sha256": "0d10c4b2f56364b475b60bd2933273c8b1ed2176353e59e65f968c61e93b7d99",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "SophosLabs has discovered that threat actors are using a new driver loader called BURNTCIGAR to install a malicious driver signed with Microsoft.",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://www.mandiant.com/resources/blog/hunting-attestation-signed-malware, https://news.sophos.com/en-us/2022/12/13/signed-driver-malware-moves-up-the-software-trust-chain/"
+    ]
+  },
+  {
+    "category": "malicious",
+    "verified": "TRUE",
+    "tags": [
+      "2.sys"
+    ],
+    "filename": "2.sys",
+    "sha256": "88076e98d45ed3adf0c5355411fe8ca793eb7cec1a1c61f5e1ec337eae267463",
+    "company": "",
+    "product": "",
+    "signature": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": "FALSE",
+    "desc": "Driver categorized as POORTRY by Mandiant.",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://www.mandiant.com/resources/blog/hunting-attestation-signed-malware",
+      ""
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "360hvm64.sys"
+    ],
+    "filename": "360Hvm64.sys",
+    "sha256": "f89d5d95b8a59e6d5e50a49217f83d080e4eaf4bb77b80d8f38cd915640ba124",
+    "company": "360\u5b89\u5168\u4e2d\u5fc3",
+    "product": "",
+    "signature": "Qihoo 360 Software Co., Ltd.",
+    "hvci": null,
+    "desc": "360hvm64.sys is the kernel-mode hypervisor enforcement driver shipped with Qihoo 360 Total Security. IOCTL 0x22240c on \\\\.\\360Hvm issues a per-CPU DPC broadcast that executes VMXOFF/VMSKINIT on every logical processor, d",
+    "usecase": "Disable 360 Total Security's VT-x/AMD-V hypervisor-based protection engine on all CPUs to enable sub",
+    "resources": [
+      "Internal Research"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "360netmon_wfp.sys",
+      "360netmon.sys"
+    ],
+    "filename": "360netmon_wfp.sys",
+    "sha256": "3d769a5f1ad0d32fb4e06478d35401d9788bad1a477b813adbdf4fd93b2c2694",
+    "company": "360.cn",
+    "product": "360netmon",
+    "signature": "Signed",
+    "hvci": null,
+    "desc": "Qihoo 360netmon_wfp.sys is a signed kernel driver documented by ESET as the driver abused by the GentleKiller Network Blocker variant used in Gentlemen ransomware intrusions. The sample is associated with ESET detection ",
+    "usecase": "Impair defenses through a signed kernel driver abused by an EDR killer.",
+    "resources": [
+      "https://www.welivesecurity.com/en/eset-research/killing-me-gently-inside-gentlemens-edr-killer-framework/",
+      "https://www.eset.com/us/about/newsroom/research/eset-research-gentlemen-ransomware-gang-edr-killers/"
+    ]
+  },
+  {
+    "category": "malicious",
+    "verified": "TRUE",
+    "tags": [
+      "4.sys"
+    ],
+    "filename": "4.sys",
+    "sha256": "8e035beb02a411f8a9e92d4cf184ad34f52bbd0a81a50c222cdd4706e4e45104",
+    "company": "",
+    "product": "",
+    "signature": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": "FALSE",
+    "desc": "SentinelOne has observed prominent threat actors abusing legitimately signed Microsoft drivers in active intrusions into telecommunication, BPO, MSSP, and financial services businesses.\nInvestigations into these intrusio",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://www.sentinelone.com/labs/driving-through-defenses-targeted-attacks-leverage-signed-malicious-microsoft-drivers/",
+      ""
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "K7RKScan.sys"
+    ],
+    "filename": "5c6ce55a85f5d4640bd1485a72d0812bc4f5188ee966c5fe334248a7175d9040",
+    "sha256": "5c6ce55a85f5d4640bd1485a72d0812bc4f5188ee966c5fe334248a7175d9040",
+    "company": "K7 Computing Pvt. Ltd.",
+    "product": "K7RKScan",
+    "signature": "",
+    "hvci": null,
+    "desc": "Driver can be used to load unsigned drivers",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://github.com/BlackSnufkin/BYOVD"
+    ]
+  },
+  {
+    "category": "malicious",
+    "verified": "TRUE",
+    "tags": [
+      "7.sys"
+    ],
+    "filename": "7.sys",
+    "sha256": "6839fcae985774427c65fe38e773aa96ec451a412caa5354ad9e2b9b54ffe6c1",
+    "company": "",
+    "product": "",
+    "signature": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": "FALSE",
+    "desc": "Driver categorized as POORTRY by Mandiant.",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://www.mandiant.com/resources/blog/hunting-attestation-signed-malware",
+      ""
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "ADRMDRVSYS.sys"
+    ],
+    "filename": "ADRMDRVSYS.sys",
+    "sha256": "a1f79a2e1441970bb3e7c838f8c14a8f3d39a46b0ff9648614e922ac475c743d",
+    "company": "ADLINK Technology, Inc.",
+    "product": "ADLINK Resource Manager Kenerl Service.",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Northwave Cyber Security contributed this driver based on in-house research. The driver has a CVSSv3 score of 8.8, indicating a privilege escalation impact. This vulnerability could potentially be exploited for privilege",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://northwave-cybersecurity.com/vulnerability-notice-adlink-pxi-platform-services?hsLang=en"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "ALSysIO64.sys"
+    ],
+    "filename": "ALSysIO64.sys",
+    "sha256": "7a20ca8f9361eb892257b3693095ffeee61457dc4e22d9b119e3a9f3a1507069",
+    "company": "Arthur Liberman",
+    "product": "ALSysIO64",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://github.com/namazso/physmem_drivers"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "ATSZIO.sys"
+    ],
+    "filename": "ATSZIO.sys",
+    "sha256": "1a4f7d7926efc3e3488758ce318246ea78a061bde759ec6c906ff005dd8213e5",
+    "company": "ASUSTek Computer Inc.",
+    "product": "ATSZIO Driver",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "Internal Research"
+    ]
+  },
+  {
+    "category": "malicious",
+    "verified": "TRUE",
+    "tags": [
+      "Air_SYSTEM10.sys"
+    ],
+    "filename": "Air_SYSTEM10.sys",
+    "sha256": "f461414a2596555cece5cfee65a3c22648db0082ca211f6238af8230e41b3212",
+    "company": "",
+    "product": "",
+    "signature": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": "FALSE",
+    "desc": "Driver categorized as POORTRY by Mandiant.",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://www.mandiant.com/resources/blog/hunting-attestation-signed-malware",
+      ""
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "AppVkgr.sys"
+    ],
+    "filename": "AppVkgr.sys",
+    "sha256": "70b47bd596e76297ded3b096839082bc31f79ef58cdffeaac7308e8b9565a6d5",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "TRUE",
+    "desc": "AppVkgr.sys is a vulnerable kernel driver from the KeServiceDescriptorTable/vulnerable-drivers repository. The driver exposes dangerous kernel primitives to usermode.",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://github.com/magicsword-io/LOLDrivers/issues/325",
+      "https://github.com/KeServiceDescriptorTable/vulnerable-drivers"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "ArgusMonitor.sys"
+    ],
+    "filename": "ArgusMonitor.sys",
+    "sha256": "df9b2892498c68805fdc0fabb369f8bcf011e784898cb32fdc5d85f6123f1126",
+    "company": "Argotronic eGbR",
+    "product": "Argus Monitor Driver",
+    "signature": "",
+    "hvci": "TRUE",
+    "desc": "ArgusMonitor.sys is the kernel driver for the Argus Monitor hardware temperature monitoring and fan control application by Argotronic UG (Germany). The driver exposes 47 IOCTLs providing arbitrary physical memory read/wr",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://github.com/magicsword-io/LOLDrivers/issues/297",
+      "https://www.argusmonitor.com/"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "asio.sys",
+      "AsIO32.sys",
+      "AsIO3.sys",
+      "AsIO3_64.sys",
+      "AsIO2.sys"
+    ],
+    "filename": "AsIO32.sys",
+    "sha256": "1afa03118f87b62c59a97617e595ebb26dde8dbdd16ee47ef3ddd1097c30ef6a",
+    "company": "",
+    "product": "",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "Confirmed vulnerable driver from Microsoft Block List",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "Internal Research",
+      "https://github.com/namazso/physmem_drivers"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "BS_HWMIO64_W10.sys"
+    ],
+    "filename": "BS_HWMIO64_W10.sys",
+    "sha256": "1d0397c263d51e9fc95bcc8baf98d1a853e1c0401cd0e27c7bf5da3fba1c93a8",
+    "company": "BIOSTAR Group",
+    "product": "BIOSTAR I/O driver",
+    "signature": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://github.com/eclypsium/Screwed-Drivers/blob/master/DRIVERS.md"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "BS_RCIO64.sys"
+    ],
+    "filename": "BS_RCIO64.sys",
+    "sha256": "d205286bffdf09bc033c09e95c519c1c267b40c2ee8bab703c6a2d86741ccd3e",
+    "company": "BIOSTAR Group",
+    "product": "BIOSTAR I/O driver",
+    "signature": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://github.com/jbaines-r7/dellicious",
+      "https://www.rapid7.com/blog/post/2021/12/13/driver-based-attacks-past-and-present/"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "BS_RVSIO64.sys"
+    ],
+    "filename": "BS_RVSIO64.sys",
+    "sha256": "a8aae612727320db096b337a45bf3cd31b5f9702ef6c4747dd2aaa74ff6badb7",
+    "company": "BIOSTAR Group",
+    "product": "BIOSTAR I/O driver",
+    "signature": "",
+    "hvci": "TRUE",
+    "desc": "BS_RVSIO64.sys is a vulnerable kernel driver from the KeServiceDescriptorTable/vulnerable-drivers repository. The driver exposes dangerous kernel primitives to usermode.",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://github.com/magicsword-io/LOLDrivers/issues/325",
+      "https://github.com/KeServiceDescriptorTable/vulnerable-drivers"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "CcProtect.sys"
+    ],
+    "filename": "CcProtect.sys",
+    "sha256": "5f0cfe8357bb52b45068ddbac053e32bc38e6cb5e086746f5402657b0a5cfb1c",
+    "company": "CnCrypt Foundation",
+    "product": "CnCrypt",
+    "signature": "",
+    "hvci": null,
+    "desc": "CnCrypt CcProtect.sys is a signed kernel driver used by BlackSnufkin BYOVD research as a process-killer provider. The public PoC documents this hash as a vulnerable CcProtect driver and notes that HVCI must be disabled t",
+    "usecase": "Terminate processes from kernel mode through a vulnerable CcProtect driver path.",
+    "resources": [
+      "https://github.com/BlackSnufkin/BYOVD/tree/main/CcProtect-Killer"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "CorsairLLAccess64.sys"
+    ],
+    "filename": "CorsairLLAccess64.sys",
+    "sha256": "29a90ae1dcee66335ece4287a06482716530509912be863c85a2a03a6450a5b6",
+    "company": "Corsair Memory, Inc.",
+    "product": "Corsair LL Access",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "Internal Research"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "CorsairLLAccess64.sys"
+    ],
+    "filename": "CorsairLLAccess64.sys",
+    "sha256": "5fad3775feb8b6f6dcbd1642ae6b6a565ff7b64eadfc9bf9777918b51696ab36",
+    "company": "Corsair Memory, Inc.",
+    "product": "Corsair LL Access",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "Internal Research"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "CorsairLLAccess64.sys"
+    ],
+    "filename": "CorsairLLAccess64.sys",
+    "sha256": "a334bdf0c0ab07803380eb6ef83eefe7c147d6962595dd9c943a6a76f2200b0d",
+    "company": "Corsair Memory, Inc.",
+    "product": "Corsair LL Access",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "Internal Research"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "CorsairLLAccess64.sys"
+    ],
+    "filename": "CorsairLLAccess64.sys",
+    "sha256": "f15ae970e222ce06dbf3752b223270d0e726fb78ebec3598b4f8225b5a0880b1",
+    "company": "Corsair Memory, Inc.",
+    "product": "Corsair LL Access",
+    "signature": "",
+    "hvci": "FALSE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "Internal Research"
+    ]
+  },
+  {
+    "category": "vulnerable driver",
+    "verified": "TRUE",
+    "tags": [
+      "CorsairLLAccess64.sys"
+    ],
+    "filename": "CorsairLLAccess64.sys",
+    "sha256": "000547560fea0dd4b477eb28bf781ea67bf83c748945ce8923f90fdd14eb7a4b",
+    "company": "Corsair Memory, Inc.",
+    "product": "Corsair LL Access",
+    "signature": "Microsoft Windows Hardware Compatibility Publisher | Microsoft Windows Third Party Component CA 2014 | Microsoft Root Certificate Authority 2010",
+    "hvci": "TRUE",
+    "desc": "",
+    "usecase": "Elevate privileges",
+    "resources": [
+      "https://github.com/elastic/protections-artifacts/search?q=VulnDriver",
+      "https://github.com/magicsword-io/LOLDrivers/issues/302"
+    ]
+  }
+]

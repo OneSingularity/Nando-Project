@@ -1,0 +1,1027 @@
+{
+  "file": "c:\\Users\\jhern\\VulnDriver\\samples\\extracted\\procexp152.sys",
+  "sha256": "2e314cf9d5f7a8ee27cb9aa022b33f209fd6a156c00a19e2fe67c387181e3be6",
+  "imphash": "1e4185932d327b06641d3414fe4bc5a2",
+  "arch": "x64",
+  "version": {
+    "CompanyName": "Sysinternals - www.sysinternals.com",
+    "FileDescription": "Process Explorer",
+    "FileVersion": "17.12",
+    "InternalName": "procexp.sys",
+    "LegalCopyright": "Copyright \u00a9 Mark Russinovich 1996-2026",
+    "OriginalFilename": "procexp.sys",
+    "ProductName": "Process Explorer",
+    "ProductVersion": "17.12"
+  },
+  "security": {
+    "HIGH_ENTROPY_VA": true,
+    "DYNAMIC_BASE": true,
+    "FORCE_INTEGRITY": true,
+    "NX_COMPAT": true,
+    "NO_SEH": false,
+    "GUARD_CF": true,
+    "GS_COOKIE": true,
+    "HVCI_COMPATIBLE": true
+  },
+  "certificate": {
+    "signed": true,
+    "win_cert_revision": "0x0200",
+    "win_cert_type": 2,
+    "cert_count": 2,
+    "certificates": [
+      {
+        "subject_cn": "Microsoft Windows Hardware Compatibility Publisher",
+        "subject_org": "Microsoft Corporation",
+        "issuer_cn": "Microsoft Windows Third Party Component CA 2012",
+        "issuer_org": "Microsoft Corporation",
+        "serial": "330000014383f0b7a805bde1c4000000000143",
+        "not_before": "2026-03-05T19:09:43+00:00",
+        "not_after": "2027-03-03T19:09:43+00:00",
+        "expired": false,
+        "not_yet_valid": false,
+        "self_signed": false,
+        "key_type": "RSA",
+        "key_size": 2048,
+        "thumbprint_sha1": "138881aad14a2413fb27af38d0857d7056f439a5",
+        "thumbprint_sha256": "b8ead37e12d192575e1f0059c0d065ad096780c2c10d4cf718761704c7561815",
+        "eku": [
+          "1.3.6.1.4.1.311.10.3.5",
+          "1.3.6.1.5.5.7.3.3"
+        ],
+        "has_code_signing_eku": true,
+        "signature_hash_algorithm": "sha256",
+        "is_ca": false
+      },
+      {
+        "subject_cn": "Microsoft Windows Third Party Component CA 2012",
+        "subject_org": "Microsoft Corporation",
+        "issuer_cn": "Microsoft Root Certificate Authority 2010",
+        "issuer_org": "Microsoft Corporation",
+        "serial": "610baac1000000000009",
+        "not_before": "2012-04-18T23:48:38+00:00",
+        "not_after": "2027-04-18T23:58:38+00:00",
+        "expired": false,
+        "not_yet_valid": false,
+        "self_signed": false,
+        "key_type": "RSA",
+        "key_size": 2048,
+        "thumbprint_sha1": "77a10ebf07542725218cd83a01b521c57bc67f73",
+        "thumbprint_sha256": "9d08973e4d108da40a1a0b274180e17371134b4dd1621fa5c1f131b739b4b823",
+        "eku": [],
+        "has_code_signing_eku": false,
+        "signature_hash_algorithm": "sha256",
+        "is_ca": true
+      }
+    ],
+    "signer_cn": "Microsoft Windows Hardware Compatibility Publisher",
+    "signer_org": "Microsoft Corporation",
+    "signer_serial": "330000014383f0b7a805bde1c4000000000143",
+    "signer_issuer": "Microsoft Windows Third Party Component CA 2012",
+    "signer_expired": false,
+    "signer_self_signed": false,
+    "signer_key_type": "RSA",
+    "signer_key_size": 2048,
+    "signer_not_after": "2027-03-03T19:09:43+00:00",
+    "signer_thumbprint": "138881aad14a2413fb27af38d0857d7056f439a5",
+    "signature_valid": true,
+    "signature_error": "",
+    "pe_hash_match": true,
+    "pe_hash_expected": "b50c35b1d138432d433ddbb5bfbb3627db8ac009cce3528a3f83a732aca3d2d5",
+    "pe_hash_actual": "b50c35b1d138432d433ddbb5bfbb3627db8ac009cce3528a3f83a732aca3d2d5",
+    "pe_hash_algorithm": "sha256",
+    "nested_signatures": [],
+    "chain_anchor": {
+      "kind": "ms-root-referenced",
+      "matched_thumbprint": "",
+      "matched_name": "Microsoft Root Certificate Authority 2010",
+      "trusted_for_kernel": true
+    },
+    "signing_time": null,
+    "countersig_time": "2026-05-07T14:48:33Z",
+    "countersig_source": "rfc3161",
+    "timestamp_valid": true,
+    "timestamp_binding_ok": true,
+    "timestamp_source": "rfc3161",
+    "timestamp_error": "",
+    "page_hashes_present": false,
+    "page_hashes_algorithm": "",
+    "has_whql_eku": true,
+    "has_ev_cert": false,
+    "eku_propagation_ok": true,
+    "eku_broken_cert_cn": ""
+  },
+  "device_names": [
+    "\\Device\\PROCEXP152",
+    "\\DosDevices\\PROCEXP152"
+  ],
+  "load_verdict": {
+    "can_load": "True",
+    "blockers": [],
+    "passes": [
+      "Microsoft-Signed Chain",
+      "HVCI",
+      "Secure Boot"
+    ]
+  },
+  "exploit_chains": [],
+  "attack_surface_score": 10,
+  "attack_risk": "MINIMAL",
+  "device_access": {
+    "create_api": "IoCreateDevice",
+    "secure_open": false,
+    "exclusive": false,
+    "sddl": "D:P(A;;GA;;;SY)(A;;GA;;;BA)",
+    "symlinks": [
+      "\\DosDevices\\PROCEXP152"
+    ],
+    "issues": [
+      "uses_IoCreateDevice",
+      "no_FILE_DEVICE_SECURE_OPEN",
+      "not_exclusive",
+      "has_symlinks"
+    ]
+  },
+  "ioctls": [
+    {
+      "code": "0x80000005",
+      "method": "METHOD_IN_DIRECT",
+      "access": "FILE_ANY_ACCESS",
+      "purpose": "registry access",
+      "primitives": [],
+      "bug_classes": [
+        "length-unbounded"
+      ],
+      "struct_fields": [],
+      "behavior": {
+        "api_calls": [
+          "ExAllocatePoolWithTag",
+          "ZwQueryValueKey",
+          "ExFreePoolWithTag"
+        ],
+        "categories": [
+          "REGISTRY",
+          "POOL"
+        ],
+        "security_checks": [],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "inline_ops": []
+      }
+    }
+  ],
+  "findings": [
+    {
+      "title": "Dangerous import: MmGetSystemRoutineAddress",
+      "severity": "MEDIUM",
+      "description": "Resolves kernel export by name \u2014 used in DSE bypass to find CI!g_CiOptions",
+      "location": "Import Table (ntoskrnl.exe)",
+      "details": {
+        "dll": "ntoskrnl.exe",
+        "function": "MmGetSystemRoutineAddress"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Dangerous import: ExAllocatePoolWithTag",
+      "severity": "LOW",
+      "description": "Pool allocation \u2014 check for size validation",
+      "location": "Import Table (ntoskrnl.exe)",
+      "details": {
+        "dll": "ntoskrnl.exe",
+        "function": "ExAllocatePoolWithTag"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Dangerous import: IoCreateSymbolicLink",
+      "severity": "LOW",
+      "description": "Creates symbolic link \u2014 check accessibility",
+      "location": "Import Table (ntoskrnl.exe)",
+      "details": {
+        "dll": "ntoskrnl.exe",
+        "function": "IoCreateSymbolicLink"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Dangerous import: IoDeleteSymbolicLink",
+      "severity": "LOW",
+      "description": "Deletes symbolic link \u2014 racy deletion enables stale-link hijack",
+      "location": "Import Table (ntoskrnl.exe)",
+      "details": {
+        "dll": "ntoskrnl.exe",
+        "function": "IoDeleteSymbolicLink"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Dangerous import: MmIsAddressValid",
+      "severity": "LOW",
+      "description": "Checks address validity \u2014 often misused as security check",
+      "location": "Import Table (ntoskrnl.exe)",
+      "details": {
+        "dll": "ntoskrnl.exe",
+        "function": "MmIsAddressValid"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Dangerous import: ZwOpenProcess",
+      "severity": "MEDIUM",
+      "description": "Opens handle to arbitrary process",
+      "location": "Import Table (ntoskrnl.exe)",
+      "details": {
+        "dll": "ntoskrnl.exe",
+        "function": "ZwOpenProcess"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Dangerous import: KeStackAttachProcess",
+      "severity": "HIGH",
+      "description": "Attaches to another process context",
+      "location": "Import Table (ntoskrnl.exe)",
+      "details": {
+        "dll": "ntoskrnl.exe",
+        "function": "KeStackAttachProcess"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Dangerous import: PsLookupProcessByProcessId",
+      "severity": "MEDIUM",
+      "description": "Resolves process by PID \u2014 often precedes manipulation",
+      "location": "Import Table (ntoskrnl.exe)",
+      "details": {
+        "dll": "ntoskrnl.exe",
+        "function": "PsLookupProcessByProcessId"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Dangerous import: PsInitialSystemProcess",
+      "severity": "CRITICAL",
+      "description": "Reference to PsInitialSystemProcess \u2014 used in EPROCESS walk / token stealing",
+      "location": "Import Table (ntoskrnl.exe)",
+      "details": {
+        "dll": "ntoskrnl.exe",
+        "function": "PsInitialSystemProcess"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Dangerous import: IoCreateDevice",
+      "severity": "MEDIUM",
+      "description": "Creates device object \u2014 check if SecurityDescriptor is NULL",
+      "location": "Import Table (ntoskrnl.exe)",
+      "details": {
+        "dll": "ntoskrnl.exe",
+        "function": "IoCreateDevice"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Dangerous import: ZwSetValueKey",
+      "severity": "MEDIUM",
+      "description": "Writes registry values from kernel",
+      "location": "Import Table (ntoskrnl.exe)",
+      "details": {
+        "dll": "ntoskrnl.exe",
+        "function": "ZwSetValueKey"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Dangerous import: ZwCreateKey",
+      "severity": "LOW",
+      "description": "Creates registry keys from kernel",
+      "location": "Import Table (ntoskrnl.exe)",
+      "details": {
+        "dll": "ntoskrnl.exe",
+        "function": "ZwCreateKey"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "No ProbeForRead/ProbeForWrite imports found",
+      "severity": "HIGH",
+      "description": "Driver imports dangerous APIs but never imports ProbeForRead or ProbeForWrite. User buffer validation is likely missing.",
+      "location": "Import Table",
+      "details": {},
+      "ioctl_code": null
+    },
+    {
+      "title": "Device name found: \\Device\\PROCEXP152",
+      "severity": "LOW",
+      "description": "Kernel device object found",
+      "location": "String References",
+      "details": {
+        "device_name": "\\Device\\PROCEXP152",
+        "user_accessible": "False"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Device name found: \\DosDevices\\PROCEXP152",
+      "severity": "MEDIUM",
+      "description": "User-accessible device via symbolic link",
+      "location": "String References",
+      "details": {
+        "device_name": "\\DosDevices\\PROCEXP152",
+        "user_accessible": "True"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "IOCTL code: 0x80000005",
+      "severity": "MEDIUM",
+      "description": "Method: METHOD_IN_DIRECT, Access: FILE_ANY_ACCESS",
+      "location": "0x1800098D1",
+      "details": {
+        "ioctl_code": "0x80000005",
+        "method": "METHOD_IN_DIRECT",
+        "handler": "0x1800098E8"
+      },
+      "ioctl_code": "0x80000005"
+    },
+    {
+      "title": "Hardcoded address: 0x10000000",
+      "severity": "MEDIUM",
+      "description": "Hardcoded page-aligned address found. May be a physical memory address used with MmMapIoSpace or similar.",
+      "location": "0x180001824",
+      "details": {
+        "address": "0x10000000"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hardcoded address: 0x10000000",
+      "severity": "MEDIUM",
+      "description": "Hardcoded page-aligned address found. May be a physical memory address used with MmMapIoSpace or similar.",
+      "location": "0x18000189E",
+      "details": {
+        "address": "0x10000000"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hardcoded address: 0x10000000",
+      "severity": "MEDIUM",
+      "description": "Hardcoded page-aligned address found. May be a physical memory address used with MmMapIoSpace or similar.",
+      "location": "0x180001941",
+      "details": {
+        "address": "0x10000000"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hardcoded address: 0x10000000",
+      "severity": "MEDIUM",
+      "description": "Hardcoded page-aligned address found. May be a physical memory address used with MmMapIoSpace or similar.",
+      "location": "0x180001C16",
+      "details": {
+        "address": "0x10000000"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Process attach chain: PsLookupProcessByProcessId -> KeAttachProcess",
+      "severity": "HIGH",
+      "description": "Driver can attach to arbitrary process contexts. Enables cross-process memory access.",
+      "location": "Import Table",
+      "details": {},
+      "ioctl_code": null
+    },
+    {
+      "title": "Integer overflow before ExAllocatePoolWithTag at 0x180008C33",
+      "severity": "CRITICAL",
+      "description": "Arithmetic (imul/shl/mul) at 0x180008C1C precedes ExAllocatePoolWithTag call at 0x180008C33 with no overflow guard (no jo/jb between them). If the multiplied value is user-controlled, this causes a heap overflow.",
+      "location": "0x180008C33",
+      "details": {
+        "alloc_func": "ExAllocatePoolWithTag",
+        "arith_at": "0x180008C1C",
+        "call_at": "0x180008C33"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Integer overflow before ExAllocatePoolWithTag at 0x180008F10",
+      "severity": "CRITICAL",
+      "description": "Arithmetic (imul/shl/mul) at 0x180008EFC precedes ExAllocatePoolWithTag call at 0x180008F10 with no overflow guard (no jo/jb between them). If the multiplied value is user-controlled, this causes a heap overflow.",
+      "location": "0x180008F10",
+      "details": {
+        "alloc_func": "ExAllocatePoolWithTag",
+        "arith_at": "0x180008EFC",
+        "call_at": "0x180008F10"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Driver is HVCI-compatible",
+      "severity": "INFO",
+      "description": "FORCE_INTEGRITY set and no W+X sections. Meets basic HVCI (Hypervisor-Protected Code Integrity) requirements.",
+      "location": "PE headers",
+      "details": {
+        "hvci": "compatible"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Kernel write gadgets found (8 instances)",
+      "severity": "HIGH",
+      "description": "Multiple 'mov [reg+offset], reg' patterns in driver code. If the register is derived from user input (e.g., IOCTL buffer), this is an arbitrary kernel memory write primitive.",
+      "location": "Code section",
+      "details": {
+        "gadgets": "0x180001000: mov qword ptr [rsp + 0x20], rsi; 0x18000101C: mov qword ptr [rbp + 0x30], rax; 0x180001034: mov dword ptr [rbp - 8], eax; 0x180001068: mov dword ptr [rbp + 0x28], eax"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'runtime resolve' at 0x18000100B",
+      "severity": "HIGH",
+      "description": "Function at 0x18000100B performs 'runtime resolve' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x18000100B",
+      "details": {
+        "purpose": "runtime resolve",
+        "function": "0x18000100B"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'process attach' at 0x1800013F0",
+      "severity": "HIGH",
+      "description": "Function at 0x1800013F0 performs 'process attach' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x1800013F0",
+      "details": {
+        "purpose": "process attach",
+        "function": "0x1800013F0"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'process lookup' at 0x180001626",
+      "severity": "HIGH",
+      "description": "Function at 0x180001626 performs 'process lookup' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x180001626",
+      "details": {
+        "purpose": "process lookup",
+        "function": "0x180001626"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'token access' at 0x18000172C",
+      "severity": "HIGH",
+      "description": "Function at 0x18000172C performs 'token access' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x18000172C",
+      "details": {
+        "purpose": "token access",
+        "function": "0x18000172C"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'token access' at 0x180001E3B",
+      "severity": "HIGH",
+      "description": "Function at 0x180001E3B performs 'token access' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x180001E3B",
+      "details": {
+        "purpose": "token access",
+        "function": "0x180001E3B"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'process attach' at 0x18000215C",
+      "severity": "HIGH",
+      "description": "Function at 0x18000215C performs 'process attach' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x18000215C",
+      "details": {
+        "purpose": "process attach",
+        "function": "0x18000215C"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'process attach' at 0x180002542",
+      "severity": "HIGH",
+      "description": "Function at 0x180002542 performs 'process attach' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x180002542",
+      "details": {
+        "purpose": "process attach",
+        "function": "0x180002542"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'process lookup' at 0x180002800",
+      "severity": "HIGH",
+      "description": "Function at 0x180002800 performs 'process lookup' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x180002800",
+      "details": {
+        "purpose": "process lookup",
+        "function": "0x180002800"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'query system' at 0x180002886",
+      "severity": "HIGH",
+      "description": "Function at 0x180002886 performs 'query system' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x180002886",
+      "details": {
+        "purpose": "query system",
+        "function": "0x180002886"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'runtime resolve' at 0x180008000",
+      "severity": "HIGH",
+      "description": "Function at 0x180008000 performs 'runtime resolve' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x180008000",
+      "details": {
+        "purpose": "runtime resolve",
+        "function": "0x180008000"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'runtime resolve' at 0x18000809C",
+      "severity": "HIGH",
+      "description": "Function at 0x18000809C performs 'runtime resolve' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x18000809C",
+      "details": {
+        "purpose": "runtime resolve",
+        "function": "0x18000809C"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'registry write' at 0x18000814A",
+      "severity": "HIGH",
+      "description": "Function at 0x18000814A performs 'registry write' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x18000814A",
+      "details": {
+        "purpose": "registry write",
+        "function": "0x18000814A"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'registry write' at 0x18000886E",
+      "severity": "HIGH",
+      "description": "Function at 0x18000886E performs 'registry write' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x18000886E",
+      "details": {
+        "purpose": "registry write",
+        "function": "0x18000886E"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'registry write' at 0x1800089AC",
+      "severity": "HIGH",
+      "description": "Function at 0x1800089AC performs 'registry write' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x1800089AC",
+      "details": {
+        "purpose": "registry write",
+        "function": "0x1800089AC"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'runtime resolve' at 0x180008B05",
+      "severity": "HIGH",
+      "description": "Function at 0x180008B05 performs 'runtime resolve' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x180008B05",
+      "details": {
+        "purpose": "runtime resolve",
+        "function": "0x180008B05"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'runtime resolve' at 0x180009401",
+      "severity": "HIGH",
+      "description": "Function at 0x180009401 performs 'runtime resolve' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x180009401",
+      "details": {
+        "purpose": "runtime resolve",
+        "function": "0x180009401"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'registry write' at 0x1800099B5",
+      "severity": "HIGH",
+      "description": "Function at 0x1800099B5 performs 'registry write' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x1800099B5",
+      "details": {
+        "purpose": "registry write",
+        "function": "0x1800099B5"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'registry write' at 0x180009B8C",
+      "severity": "HIGH",
+      "description": "Function at 0x180009B8C performs 'registry write' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x180009B8C",
+      "details": {
+        "purpose": "registry write",
+        "function": "0x180009B8C"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'registry write' at 0x180009BF6",
+      "severity": "HIGH",
+      "description": "Function at 0x180009BF6 performs 'registry write' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x180009BF6",
+      "details": {
+        "purpose": "registry write",
+        "function": "0x180009BF6"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'registry write' at 0x180009C48",
+      "severity": "HIGH",
+      "description": "Function at 0x180009C48 performs 'registry write' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x180009C48",
+      "details": {
+        "purpose": "registry write",
+        "function": "0x180009C48"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'runtime resolve' at 0x18000A006",
+      "severity": "HIGH",
+      "description": "Function at 0x18000A006 performs 'runtime resolve' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x18000A006",
+      "details": {
+        "purpose": "runtime resolve",
+        "function": "0x18000A006"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "IOCTL handlers missing InputBufferLength validation",
+      "severity": "HIGH",
+      "description": "The following IOCTL handlers do not appear to validate InputBufferLength before processing the buffer: 0x80000005. Without size checks, a short buffer could cause pool overread or out-of-bounds writes.",
+      "location": "IOCTL handlers",
+      "details": {
+        "ioctls": [
+          "0x80000005"
+        ]
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "IoCreateDevice without FILE_DEVICE_SECURE_OPEN",
+      "severity": "HIGH",
+      "description": "Driver uses IoCreateDevice instead of IoCreateDeviceSecure and FILE_DEVICE_SECURE_OPEN flag was not detected. Without this flag, the device object inherits permissive default security, allowing any user to open a handle. Use IoCreateDeviceSecure with an SDDL string to restrict access.",
+      "location": "Import Table / DriverEntry",
+      "details": {},
+      "ioctl_code": null
+    },
+    {
+      "title": "Driver has Authenticode signature",
+      "severity": "INFO",
+      "description": "PE contains a WIN_CERTIFICATE structure with embedded signature.",
+      "location": "PE Security Directory",
+      "details": {
+        "revision": "0x0200",
+        "cert_count": "2"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Signed by: Microsoft Windows Hardware Compatibility Publisher",
+      "severity": "INFO",
+      "description": "Subject: Microsoft Windows Hardware Compatibility Publisher (Microsoft Corporation)\nIssuer: Microsoft Windows Third Party Component CA 2012\nSerial: 330000014383f0b7a805bde1c4000000000143\nKey: RSA 2048-bit\nValid until: 2027-03-03T19:09:43+00:00",
+      "location": "Authenticode Certificate",
+      "details": {
+        "signer_cn": "Microsoft Windows Hardware Compatibility Publisher",
+        "signer_org": "Microsoft Corporation",
+        "issuer": "Microsoft Windows Third Party Component CA 2012",
+        "serial": "330000014383f0b7a805bde1c4000000000143",
+        "thumbprint": "138881aad14a2413fb27af38d0857d7056f439a5"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "No timestamp countersignature detected",
+      "severity": "MEDIUM",
+      "description": "The Authenticode signature has no countersignature timestamp. Without a timestamp, the signature becomes invalid after the signing certificate expires. Timestamped signatures remain valid indefinitely. This affects driver loadability.",
+      "location": "Authenticode Certificate",
+      "details": {},
+      "ioctl_code": null
+    },
+    {
+      "title": "PKCS#7 signature verifies cryptographically",
+      "severity": "INFO",
+      "description": "The primary Authenticode PKCS#7 signature was verified against the signer certificate's public key.",
+      "location": "Authenticode Certificate",
+      "details": {},
+      "ioctl_code": null
+    },
+    {
+      "title": "Authenticode PE hash matches (binary not tampered)",
+      "severity": "INFO",
+      "description": "Recomputed sha256 hash of the PE image matches the value embedded in SpcIndirectDataContent.",
+      "location": "Authenticode Signature",
+      "details": {},
+      "ioctl_code": null
+    },
+    {
+      "title": "Chain anchored to kernel-trusted root (ms-root-referenced)",
+      "severity": "INFO",
+      "description": "Chain terminates at 'Microsoft Root Certificate Authority 2010' \u2014 recognised as kernel-trusted (ms-root-referenced).",
+      "location": "Certificate Chain",
+      "details": {
+        "kind": "ms-root-referenced",
+        "matched_thumbprint": "",
+        "matched_name": "Microsoft Root Certificate Authority 2010",
+        "trusted_for_kernel": true
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Driver architecture: x64",
+      "severity": "INFO",
+      "description": "64-bit driver \u2014 loads on x64 Windows",
+      "location": "PE Header",
+      "details": {},
+      "ioctl_code": null
+    },
+    {
+      "title": "Load compatibility: LOADABLE \u2014 This driver should load on modern Windows",
+      "severity": "INFO",
+      "description": "  [PASS] Microsoft-Signed Chain: Certificate chain includes Microsoft \u2014 full trust\n  [PASS] HVCI: Compatible with Memory Integrity\n  [PASS] Secure Boot: Compatible (signed driver)",
+      "location": "Load Policy Analysis",
+      "details": {
+        "can_load": "True",
+        "blockers": [],
+        "passes": [
+          "Microsoft-Signed Chain",
+          "HVCI",
+          "Secure Boot"
+        ],
+        "matrix": {
+          "default": {
+            "verdict": "WILL_LOAD",
+            "blockers": [],
+            "passes": [
+              "Signed",
+              "Chain anchored (ms-root-referenced)",
+              "Signature crypto + PE hash OK"
+            ]
+          },
+          "secure_boot": {
+            "verdict": "WILL_LOAD",
+            "blockers": [],
+            "passes": [
+              "Signed",
+              "Chain anchored (ms-root-referenced)",
+              "Signature crypto + PE hash OK"
+            ]
+          },
+          "hvci": {
+            "verdict": "WILL_LOAD",
+            "blockers": [],
+            "passes": [
+              "Signed",
+              "Chain anchored (ms-root-referenced)",
+              "Signature crypto + PE hash OK",
+              "WHQL attestation EKU present (Secured-Core ready)"
+            ]
+          },
+          "test_signing": {
+            "verdict": "WILL_LOAD",
+            "blockers": [],
+            "passes": [
+              "Any valid signature accepted under test-signing"
+            ]
+          },
+          "s_mode": {
+            "verdict": "WILL_NOT_LOAD",
+            "blockers": [
+              "No Authenticode page hashes (Secured-Core requires per-page integrity)"
+            ],
+            "passes": [
+              "WHQL attestation EKU present"
+            ]
+          }
+        }
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Device Access Security Audit",
+      "severity": "HIGH",
+      "description": "Uses IoCreateDevice (not IoCreateDeviceSecure); Missing FILE_DEVICE_SECURE_OPEN flag; Device is not exclusive (multiple handles allowed); Exposed via symlinks: \\DosDevices\\PROCEXP152",
+      "location": "DriverEntry",
+      "details": {
+        "create_api": "IoCreateDevice",
+        "secure_open": "False",
+        "exclusive": "False",
+        "device_type": "unknown",
+        "sddl": "D:P(A;;GA;;;SY)(A;;GA;;;BA)",
+        "symlinks": [
+          "\\DosDevices\\PROCEXP152"
+        ],
+        "create_checks": [],
+        "issues": [
+          "uses_IoCreateDevice",
+          "no_FILE_DEVICE_SECURE_OPEN",
+          "not_exclusive",
+          "has_symlinks"
+        ]
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "IOCTL 0x80000005 behavior: POOL: ExAllocatePoolWithTag, ExFreePoolWithTag | REGISTRY: ZwQueryValueKey",
+      "severity": "HIGH",
+      "description": "Handler at 0x1800098E8\nSecurity checks: NONE\nAPI calls (3):\n  [POOL] ExAllocatePoolWithTag \u2014 Allocate tagged kernel pool memory\n  [REGISTRY] ZwQueryValueKey \u2014 Read registry value\n  [POOL] ExFreePoolWithTag \u2014 Free tagged kernel pool memory\nRisk: No IRP completion detected (may leak IRP or cause hang)",
+      "location": "0x1800098E8",
+      "details": {
+        "ioctl": "0x80000005",
+        "purpose": "registry access",
+        "handler": "0x1800098E8",
+        "api_calls": [
+          "ExAllocatePoolWithTag",
+          "ZwQueryValueKey",
+          "ExFreePoolWithTag"
+        ],
+        "categories": [
+          "REGISTRY",
+          "POOL"
+        ],
+        "security_checks": [],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "irp_completion": "False",
+        "inline_ops": []
+      },
+      "ioctl_code": "0x80000005"
+    },
+    {
+      "title": "ROP/JOP gadgets found: 776 total (misc: 220, reg-control: 208, memory-read: 138, memory-write: 132, stack-pivot: 60, jmp-reg: 18)",
+      "severity": "MEDIUM",
+      "description": "Found 776 usable ROP/JOP gadgets in executable sections. Since many drivers lack ASLR, these gadgets are at predictable addresses and can be chained for kernel exploitation.\n\nTop gadgets by type:\n  [stack-pivot] (60 found):\n    0x180001449: xchg esp, eax ; ret\n    0x180001447: or byte ptr [rdi], cl ; xchg esp, eax ; ret\n    0x180001444: xchg dword ptr [rax + 0x39], ecx ; or byte ptr [rdi], cl ; xchg esp, eax ; ret\n  [memory-write] (132 found):\n    0x180002B60: mov dword ptr [rcx + 8], edx ; ret\n    0x180002B5F: mov qword ptr [rcx + 8], rdx ; ret\n    0x180002B5C: mov dword ptr [rcx + 2], eax ; mov qword ptr [rcx + 8], rdx ; ret\n  [memory-read] (138 found):\n    0x1800013C8: mov esi, dword ptr [rsp + 0x168] ; add rsp, 0x140 ; pop rbp ; ret\n    0x1800013C7: mov rsi, qword ptr [rsp + 0x168] ; add rsp, 0x140 ; pop rbp ; ret\n    0x1800013C5: add byte ptr [rax], al ; mov rsi, qword ptr [rsp + 0x168] ; add rsp, 0x140 ; pop rbp ; ret\n  [reg-control] (208 found):\n    0x1800013D6: pop rbp ; ret\n    0x1800013D4: add byte ptr [rax], al ; pop rbp ; ret\n    0x1800013D0: add esp, 0x140 ; pop rbp ; ret\n  [jmp-reg] (18 found):\n    0x18000178B: add ecx, edx ; jmp rcx\n    0x18000178A: add rcx, rdx ; jmp rcx\n    0x180001788: add byte ptr [rax], al ; add rcx, rdx ; jmp rcx",
+      "location": "Executable sections",
+      "details": {
+        "total_gadgets": "776",
+        "by_type": {
+          "stack-pivot": 60,
+          "reg-control": 208,
+          "memory-read": 138,
+          "memory-write": 132,
+          "jmp-reg": 18,
+          "misc": 220
+        }
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [memory-write]: mov dword ptr [rcx + 8], edx ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x180002B60 (2 insns). Type: memory-write. Bytes: 895108c3",
+      "location": "0x180002B60",
+      "details": {
+        "type": "memory-write",
+        "asm": "mov dword ptr [rcx + 8], edx ; ret",
+        "bytes": "895108c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [memory-write]: mov qword ptr [rcx + 8], rdx ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x180002B5F (2 insns). Type: memory-write. Bytes: 48895108c3",
+      "location": "0x180002B5F",
+      "details": {
+        "type": "memory-write",
+        "asm": "mov qword ptr [rcx + 8], rdx ; ret",
+        "bytes": "48895108c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [memory-write]: mov dword ptr [rcx + 2], eax ; mov qword ptr [rcx + 8], rdx ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x180002B5C (3 insns). Type: memory-write. Bytes: 89410248895108c3",
+      "location": "0x180002B5C",
+      "details": {
+        "type": "memory-write",
+        "asm": "mov dword ptr [rcx + 2], eax ; mov qword ptr [rcx + 8], rdx ; ret",
+        "bytes": "89410248895108c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [memory-write]: mov dword ptr [rcx + 2], r8d ; mov qword ptr [rcx + 8], rdx ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x180002B5B (3 insns). Type: memory-write. Bytes: 4489410248895108c3",
+      "location": "0x180002B5B",
+      "details": {
+        "type": "memory-write",
+        "asm": "mov dword ptr [rcx + 2], r8d ; mov qword ptr [rcx + 8], rdx ; ret",
+        "bytes": "4489410248895108c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [memory-write]: mov word ptr [rcx + 2], r8w ; mov qword ptr [rcx + 8], rdx ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x180002B5A (3 insns). Type: memory-write. Bytes: 664489410248895108c3",
+      "location": "0x180002B5A",
+      "details": {
+        "type": "memory-write",
+        "asm": "mov word ptr [rcx + 2], r8w ; mov qword ptr [rcx + 8], rdx ; ret",
+        "bytes": "664489410248895108c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [stack-pivot]: xchg esp, eax ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x180001449 (2 insns). Type: stack-pivot. Bytes: 94c3",
+      "location": "0x180001449",
+      "details": {
+        "type": "stack-pivot",
+        "asm": "xchg esp, eax ; ret",
+        "bytes": "94c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [stack-pivot]: or byte ptr [rdi], cl ; xchg esp, eax ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x180001447 (3 insns). Type: stack-pivot. Bytes: 080f94c3",
+      "location": "0x180001447",
+      "details": {
+        "type": "stack-pivot",
+        "asm": "or byte ptr [rdi], cl ; xchg esp, eax ; ret",
+        "bytes": "080f94c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [stack-pivot]: xchg dword ptr [rax + 0x39], ecx ; or byte ptr [rdi], cl ; xchg esp, eax ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x180001444 (4 insns). Type: stack-pivot. Bytes: 874839080f94c3",
+      "location": "0x180001444",
+      "details": {
+        "type": "stack-pivot",
+        "asm": "xchg dword ptr [rax + 0x39], ecx ; or byte ptr [rdi], cl ; xchg esp, eax ; ret",
+        "bytes": "874839080f94c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [stack-pivot]: xchg qword ptr [r8 + 0x39], r9 ; or byte ptr [rdi], cl ; xchg esp, eax ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x180001443 (4 insns). Type: stack-pivot. Bytes: 4d874839080f94c3",
+      "location": "0x180001443",
+      "details": {
+        "type": "stack-pivot",
+        "asm": "xchg qword ptr [r8 + 0x39], r9 ; or byte ptr [rdi], cl ; xchg esp, eax ; ret",
+        "bytes": "4d874839080f94c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [stack-pivot]: add byte ptr [rax - 0x75], cl ; xchg qword ptr [r8 + 0x39], r9 ; or byte ptr [rdi], cl ; xchg esp, eax ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x180001440 (5 insns). Type: stack-pivot. Bytes: 00488b4d874839080f94c3",
+      "location": "0x180001440",
+      "details": {
+        "type": "stack-pivot",
+        "asm": "add byte ptr [rax - 0x75], cl ; xchg qword ptr [r8 + 0x39], r9 ; or byte ptr [rdi], cl ; xchg esp, eax ; ret",
+        "bytes": "00488b4d874839080f94c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Attack Surface Score: 10/100 [MINIMAL]",
+      "severity": "INFO",
+      "description": "Minimal attack surface \u2014 well-hardened driver\n\nScore breakdown:\n  IOCTL Exposure    : 4/20\n  Exploit Primitives: 0/25  (none)\n  Missing Mitigations: 0/15\n  Certificate Issues : 10/10\n  Dangerous Imports  : 2/10",
+      "location": "Overall Assessment",
+      "details": {
+        "score": "10",
+        "risk": "MINIMAL",
+        "primitives": [],
+        "ioctl_count": "1",
+        "method_neither_count": "0"
+      },
+      "ioctl_code": null
+    }
+  ]
+}

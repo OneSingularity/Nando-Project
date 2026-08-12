@@ -1,0 +1,1649 @@
+{
+  "file": "c:\\Users\\jhern\\VulnDriver\\samples\\DBUtilDrv2_71fe5af0.sys",
+  "sha256": "71fe5af0f1564dc187eea8d59c0fbc897712afa07d18316d2080330ba17cf009",
+  "imphash": "506a31d768aec26b297c45b50026c820",
+  "arch": "x64",
+  "version": {
+    "CompanyName": "Dell",
+    "FileDescription": "DBUtil",
+    "InternalName": "",
+    "LegalCopyright": "\u00a9 2021 Dell Inc. All Rights Reserved.",
+    "OriginalFilename": "",
+    "ProductName": "DBUtil",
+    "ProductVersion": "2.7.0.0"
+  },
+  "security": {
+    "HIGH_ENTROPY_VA": true,
+    "DYNAMIC_BASE": true,
+    "FORCE_INTEGRITY": false,
+    "NX_COMPAT": true,
+    "NO_SEH": false,
+    "GUARD_CF": true,
+    "GS_COOKIE": true,
+    "HVCI_COMPATIBLE": false
+  },
+  "certificate": {
+    "signed": true,
+    "win_cert_revision": "0x0200",
+    "win_cert_type": 2,
+    "cert_count": 2,
+    "certificates": [
+      {
+        "subject_cn": "Microsoft Windows Hardware Compatibility Publisher",
+        "subject_org": "Microsoft Corporation",
+        "issuer_cn": "Microsoft Windows Third Party Component CA 2012",
+        "issuer_org": "Microsoft Corporation",
+        "serial": "33000000b5213fca1e4aa03de40000000000b5",
+        "not_before": "2020-12-15T22:15:33+00:00",
+        "not_after": "2021-12-02T22:15:33+00:00",
+        "expired": true,
+        "not_yet_valid": false,
+        "self_signed": false,
+        "key_type": "RSA",
+        "key_size": 2048,
+        "thumbprint_sha1": "38b7c74e37392713e436e19a2be053100115da88",
+        "thumbprint_sha256": "6d6af5a5fd8bde067e41a176287feb2c62e73cf0823e77514a3b2e2c7bfc1e24",
+        "eku": [
+          "1.3.6.1.4.1.311.10.3.39",
+          "1.3.6.1.4.1.311.10.3.5",
+          "1.3.6.1.5.5.7.3.3"
+        ],
+        "has_code_signing_eku": true,
+        "signature_hash_algorithm": "sha256",
+        "is_ca": false
+      },
+      {
+        "subject_cn": "Microsoft Windows Third Party Component CA 2012",
+        "subject_org": "Microsoft Corporation",
+        "issuer_cn": "Microsoft Root Certificate Authority 2010",
+        "issuer_org": "Microsoft Corporation",
+        "serial": "610baac1000000000009",
+        "not_before": "2012-04-18T23:48:38+00:00",
+        "not_after": "2027-04-18T23:58:38+00:00",
+        "expired": false,
+        "not_yet_valid": false,
+        "self_signed": false,
+        "key_type": "RSA",
+        "key_size": 2048,
+        "thumbprint_sha1": "77a10ebf07542725218cd83a01b521c57bc67f73",
+        "thumbprint_sha256": "9d08973e4d108da40a1a0b274180e17371134b4dd1621fa5c1f131b739b4b823",
+        "eku": [],
+        "has_code_signing_eku": false,
+        "signature_hash_algorithm": "sha256",
+        "is_ca": true
+      }
+    ],
+    "signer_cn": "Microsoft Windows Hardware Compatibility Publisher",
+    "signer_org": "Microsoft Corporation",
+    "signer_serial": "33000000b5213fca1e4aa03de40000000000b5",
+    "signer_issuer": "Microsoft Windows Third Party Component CA 2012",
+    "signer_expired": true,
+    "signer_self_signed": false,
+    "signer_key_type": "RSA",
+    "signer_key_size": 2048,
+    "signer_not_after": "2021-12-02T22:15:33+00:00",
+    "signer_thumbprint": "38b7c74e37392713e436e19a2be053100115da88",
+    "signature_valid": true,
+    "signature_error": "",
+    "pe_hash_match": true,
+    "pe_hash_expected": "7bacb353363cc29f7f3815a9d01e85cd86202d92378d1ab1b11df1ab2f42f40a",
+    "pe_hash_actual": "7bacb353363cc29f7f3815a9d01e85cd86202d92378d1ab1b11df1ab2f42f40a",
+    "pe_hash_algorithm": "sha256",
+    "nested_signatures": [],
+    "chain_anchor": {
+      "kind": "ms-root-referenced",
+      "matched_thumbprint": "",
+      "matched_name": "Microsoft Root Certificate Authority 2010",
+      "trusted_for_kernel": true
+    },
+    "signing_time": null,
+    "countersig_time": "2021-05-10T21:32:22Z",
+    "countersig_source": "rfc3161",
+    "timestamp_valid": true,
+    "timestamp_binding_ok": true,
+    "timestamp_source": "rfc3161",
+    "timestamp_error": "",
+    "page_hashes_present": false,
+    "page_hashes_algorithm": "",
+    "has_whql_eku": true,
+    "has_ev_cert": false,
+    "eku_propagation_ok": true,
+    "eku_broken_cert_cn": ""
+  },
+  "device_names": [
+    "\\Device\\DBUtil_2_5",
+    "\\DosDevices\\DBUtil_2_5"
+  ],
+  "load_verdict": {
+    "can_load": "False",
+    "blockers": [
+      "Expired + No Timestamp",
+      "HVCI",
+      "Timestamp"
+    ],
+    "passes": [
+      "Secure Boot"
+    ]
+  },
+  "exploit_chains": [
+    {
+      "name": "Physical Memory Attack",
+      "severity": "CRITICAL",
+      "steps": [
+        "1. Use phys-rw (IOCTL 0x9B0C1F44 [phys mem map]) to scan physical memory for EPROCESS signatures",
+        "2. Locate current process EPROCESS in physical memory",
+        "3. Overwrite Token field with SYSTEM process token",
+        "4. Alternative: map ntoskrnl .text, patch code inline",
+        "5. Spawn SYSTEM shell"
+      ],
+      "dataflow_edges": []
+    }
+  ],
+  "attack_surface_score": 38,
+  "attack_risk": "LOW",
+  "device_access": {
+    "create_api": "Unknown",
+    "secure_open": false,
+    "exclusive": false,
+    "sddl": null,
+    "symlinks": [
+      "\\DosDevices\\DBUtil_2_5"
+    ],
+    "issues": [
+      "has_symlinks"
+    ]
+  },
+  "ioctls": [
+    {
+      "code": "0x9B0C1EC0",
+      "method": "METHOD_BUFFERED",
+      "access": "FILE_ANY_ACCESS",
+      "purpose": "phys mem xlate",
+      "primitives": [],
+      "bug_classes": [],
+      "struct_fields": [],
+      "behavior": {
+        "api_calls": [
+          "MmAllocateContiguousMemorySpecifyCache",
+          "MmGetPhysicalAddress"
+        ],
+        "categories": [
+          "MEMORY"
+        ],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER",
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "inline_ops": []
+      }
+    },
+    {
+      "code": "0x9B0C1EC4",
+      "method": "METHOD_BUFFERED",
+      "access": "FILE_ANY_ACCESS",
+      "purpose": "stub (no observable calls)",
+      "primitives": [],
+      "bug_classes": [],
+      "struct_fields": [],
+      "behavior": {
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "inline_ops": []
+      }
+    },
+    {
+      "code": "0x9B0C1EC8",
+      "method": "METHOD_BUFFERED",
+      "access": "FILE_ANY_ACCESS",
+      "purpose": "stub (no observable calls)",
+      "primitives": [],
+      "bug_classes": [],
+      "struct_fields": [],
+      "behavior": {
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "inline_ops": []
+      }
+    },
+    {
+      "code": "0x9B0C1ECC",
+      "method": "METHOD_BUFFERED",
+      "access": "FILE_ANY_ACCESS",
+      "purpose": "",
+      "primitives": [],
+      "bug_classes": [],
+      "struct_fields": [],
+      "behavior": {
+        "api_calls": [
+          "MmFreeContiguousMemorySpecifyCache"
+        ],
+        "categories": [
+          "OTHER"
+        ],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "inline_ops": []
+      }
+    },
+    {
+      "code": "0x9B0C1F00",
+      "method": "METHOD_BUFFERED",
+      "access": "FILE_ANY_ACCESS",
+      "purpose": "port I/O",
+      "primitives": [],
+      "bug_classes": [
+        "arbitrary-rw"
+      ],
+      "struct_fields": [],
+      "behavior": {
+        "api_calls": [
+          "KeSetPriorityThread",
+          "KeSetPriorityThread"
+        ],
+        "categories": [
+          "OTHER"
+        ],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "inline_ops": [
+          "PORT_write",
+          "PORT_read",
+          "PORT_write",
+          "PORT_write",
+          "PORT_read",
+          "PORT_write",
+          "PORT_write",
+          "PORT_read",
+          "PORT_write",
+          "PORT_write",
+          "PORT_read",
+          "PORT_write"
+        ]
+      }
+    },
+    {
+      "code": "0x9B0C1F04",
+      "method": "METHOD_BUFFERED",
+      "access": "FILE_ANY_ACCESS",
+      "purpose": "",
+      "primitives": [],
+      "bug_classes": [],
+      "struct_fields": [],
+      "behavior": {
+        "api_calls": [
+          "KeInsertQueueDpc"
+        ],
+        "categories": [
+          "OTHER"
+        ],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "inline_ops": []
+      }
+    },
+    {
+      "code": "0x9B0C1F08",
+      "method": "METHOD_BUFFERED",
+      "access": "FILE_ANY_ACCESS",
+      "purpose": "stub (no observable calls)",
+      "primitives": [],
+      "bug_classes": [],
+      "struct_fields": [],
+      "behavior": {
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "inline_ops": []
+      }
+    },
+    {
+      "code": "0x9B0C1F44",
+      "method": "METHOD_BUFFERED",
+      "access": "FILE_ANY_ACCESS",
+      "purpose": "phys mem map",
+      "primitives": [
+        "physical-rw"
+      ],
+      "bug_classes": [
+        "arbitrary-rw"
+      ],
+      "struct_fields": [],
+      "behavior": {
+        "api_calls": [
+          "MmMapIoSpace",
+          "MmUnmapIoSpace"
+        ],
+        "categories": [
+          "MEMORY"
+        ],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "Direct hardware/CPU manipulation",
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "inline_ops": []
+      }
+    },
+    {
+      "code": "0x9B0C1F80",
+      "method": "METHOD_BUFFERED",
+      "access": "FILE_ANY_ACCESS",
+      "purpose": "stub (no observable calls)",
+      "primitives": [],
+      "bug_classes": [],
+      "struct_fields": [],
+      "behavior": {
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "inline_ops": []
+      }
+    },
+    {
+      "code": "0x9B0C1F84",
+      "method": "METHOD_BUFFERED",
+      "access": "FILE_ANY_ACCESS",
+      "purpose": "stub (no observable calls)",
+      "primitives": [],
+      "bug_classes": [],
+      "struct_fields": [],
+      "behavior": {
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "inline_ops": []
+      }
+    },
+    {
+      "code": "0x9B0C1F88",
+      "method": "METHOD_BUFFERED",
+      "access": "FILE_ANY_ACCESS",
+      "purpose": "stub (no observable calls)",
+      "primitives": [],
+      "bug_classes": [],
+      "struct_fields": [],
+      "behavior": {
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "inline_ops": []
+      }
+    },
+    {
+      "code": "0x9B0C1F8C",
+      "method": "METHOD_BUFFERED",
+      "access": "FILE_ANY_ACCESS",
+      "purpose": "port I/O",
+      "primitives": [],
+      "bug_classes": [
+        "arbitrary-rw"
+      ],
+      "struct_fields": [],
+      "behavior": {
+        "api_calls": [
+          "KeSetPriorityThread",
+          "KeSetPriorityThread"
+        ],
+        "categories": [
+          "OTHER"
+        ],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "inline_ops": [
+          "PORT_write",
+          "PORT_read",
+          "PORT_read"
+        ]
+      }
+    },
+    {
+      "code": "0x9B0C1FC0",
+      "method": "METHOD_BUFFERED",
+      "access": "FILE_ANY_ACCESS",
+      "purpose": "stub (no observable calls)",
+      "primitives": [],
+      "bug_classes": [],
+      "struct_fields": [],
+      "behavior": {
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "inline_ops": []
+      }
+    },
+    {
+      "code": "0x9B0C1FC4",
+      "method": "METHOD_BUFFERED",
+      "access": "FILE_ANY_ACCESS",
+      "purpose": "stub (no observable calls)",
+      "primitives": [],
+      "bug_classes": [],
+      "struct_fields": [],
+      "behavior": {
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "inline_ops": []
+      }
+    }
+  ],
+  "findings": [
+    {
+      "title": "Dangerous import: MmMapIoSpace",
+      "severity": "CRITICAL",
+      "description": "Maps physical memory \u2014 arbitrary R/W primitive if address is user-controlled",
+      "location": "Import Table (ntoskrnl.exe)",
+      "details": {
+        "dll": "ntoskrnl.exe",
+        "function": "MmMapIoSpace"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Dangerous import: MmGetPhysicalAddress",
+      "severity": "HIGH",
+      "description": "Gets physical address \u2014 used in physical memory access chains",
+      "location": "Import Table (ntoskrnl.exe)",
+      "details": {
+        "dll": "ntoskrnl.exe",
+        "function": "MmGetPhysicalAddress"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Dangerous import: MmGetSystemRoutineAddress",
+      "severity": "MEDIUM",
+      "description": "Resolves kernel export by name \u2014 used in DSE bypass to find CI!g_CiOptions",
+      "location": "Import Table (ntoskrnl.exe)",
+      "details": {
+        "dll": "ntoskrnl.exe",
+        "function": "MmGetSystemRoutineAddress"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "No ProbeForRead/ProbeForWrite imports found",
+      "severity": "HIGH",
+      "description": "Driver imports dangerous APIs but never imports ProbeForRead or ProbeForWrite. User buffer validation is likely missing.",
+      "location": "Import Table",
+      "details": {},
+      "ioctl_code": null
+    },
+    {
+      "title": "Device name found: \\Device\\DBUtil_2_5",
+      "severity": "LOW",
+      "description": "Kernel device object found",
+      "location": "String References",
+      "details": {
+        "device_name": "\\Device\\DBUtil_2_5",
+        "user_accessible": "False"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Device name found: \\DosDevices\\DBUtil_2_5",
+      "severity": "MEDIUM",
+      "description": "User-accessible device via symbolic link",
+      "location": "String References",
+      "details": {
+        "device_name": "\\DosDevices\\DBUtil_2_5",
+        "user_accessible": "True"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "WDF (Windows Driver Framework) driver detected",
+      "severity": "INFO",
+      "description": "Driver uses WDF framework (detected imports: WdfVersionBind). IOCTL dispatch uses EvtIoDeviceControl callback via WdfIoQueueCreate rather than DriverObject->MajorFunction[].",
+      "location": "Import Table",
+      "details": {
+        "wdf_imports": "WdfVersionBind"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "IOCTL code: 0x9B0C1EC0",
+      "severity": "MEDIUM",
+      "description": "Method: METHOD_BUFFERED, Access: FILE_ANY_ACCESS",
+      "location": "0x140001617",
+      "details": {
+        "ioctl_code": "0x9B0C1EC0",
+        "method": "METHOD_BUFFERED",
+        "handler": "0x1400017C2"
+      },
+      "ioctl_code": "0x9B0C1EC0"
+    },
+    {
+      "title": "IOCTL code: 0x9B0C1EC4",
+      "severity": "MEDIUM",
+      "description": "Method: METHOD_BUFFERED, Access: FILE_ANY_ACCESS",
+      "location": "0x140001623",
+      "details": {
+        "ioctl_code": "0x9B0C1EC4",
+        "method": "METHOD_BUFFERED",
+        "handler": "0x140001795"
+      },
+      "ioctl_code": "0x9B0C1EC4"
+    },
+    {
+      "title": "IOCTL code: 0x9B0C1EC8",
+      "severity": "MEDIUM",
+      "description": "Method: METHOD_BUFFERED, Access: FILE_ANY_ACCESS",
+      "location": "0x14000162F",
+      "details": {
+        "ioctl_code": "0x9B0C1EC8",
+        "method": "METHOD_BUFFERED",
+        "handler": "0x140001757"
+      },
+      "ioctl_code": "0x9B0C1EC8"
+    },
+    {
+      "title": "IOCTL code: 0x9B0C1ECC",
+      "severity": "MEDIUM",
+      "description": "Method: METHOD_BUFFERED, Access: FILE_ANY_ACCESS",
+      "location": "0x14000163B",
+      "details": {
+        "ioctl_code": "0x9B0C1ECC",
+        "method": "METHOD_BUFFERED",
+        "handler": "0x14000171B"
+      },
+      "ioctl_code": "0x9B0C1ECC"
+    },
+    {
+      "title": "IOCTL code: 0x9B0C1F00",
+      "severity": "MEDIUM",
+      "description": "Method: METHOD_BUFFERED, Access: FILE_ANY_ACCESS",
+      "location": "0x140001647",
+      "details": {
+        "ioctl_code": "0x9B0C1F00",
+        "method": "METHOD_BUFFERED",
+        "handler": "0x1400016DF"
+      },
+      "ioctl_code": "0x9B0C1F00"
+    },
+    {
+      "title": "IOCTL code: 0x9B0C1F04",
+      "severity": "MEDIUM",
+      "description": "Method: METHOD_BUFFERED, Access: FILE_ANY_ACCESS",
+      "location": "0x140001653",
+      "details": {
+        "ioctl_code": "0x9B0C1F04",
+        "method": "METHOD_BUFFERED",
+        "handler": "0x1400016A3"
+      },
+      "ioctl_code": "0x9B0C1F04"
+    },
+    {
+      "title": "IOCTL code: 0x9B0C1F08",
+      "severity": "MEDIUM",
+      "description": "Method: METHOD_BUFFERED, Access: FILE_ANY_ACCESS",
+      "location": "0x14000165B",
+      "details": {
+        "ioctl_code": "0x9B0C1F08",
+        "method": "METHOD_BUFFERED",
+        "handler": "0x140001667"
+      },
+      "ioctl_code": "0x9B0C1F08"
+    },
+    {
+      "title": "IOCTL code: 0x9B0C1F44",
+      "severity": "MEDIUM",
+      "description": "Method: METHOD_BUFFERED, Access: FILE_ANY_ACCESS",
+      "location": "0x140001834",
+      "details": {
+        "ioctl_code": "0x9B0C1F44",
+        "method": "METHOD_BUFFERED",
+        "handler": "0x14000195C"
+      },
+      "ioctl_code": "0x9B0C1F44"
+    },
+    {
+      "title": "IOCTL code: 0x9B0C1F80",
+      "severity": "MEDIUM",
+      "description": "Method: METHOD_BUFFERED, Access: FILE_ANY_ACCESS",
+      "location": "0x140001840",
+      "details": {
+        "ioctl_code": "0x9B0C1F80",
+        "method": "METHOD_BUFFERED",
+        "handler": "0x140001928"
+      },
+      "ioctl_code": "0x9B0C1F80"
+    },
+    {
+      "title": "IOCTL code: 0x9B0C1F84",
+      "severity": "MEDIUM",
+      "description": "Method: METHOD_BUFFERED, Access: FILE_ANY_ACCESS",
+      "location": "0x14000184C",
+      "details": {
+        "ioctl_code": "0x9B0C1F84",
+        "method": "METHOD_BUFFERED",
+        "handler": "0x14000191E"
+      },
+      "ioctl_code": "0x9B0C1F84"
+    },
+    {
+      "title": "IOCTL code: 0x9B0C1F88",
+      "severity": "MEDIUM",
+      "description": "Method: METHOD_BUFFERED, Access: FILE_ANY_ACCESS",
+      "location": "0x140001858",
+      "details": {
+        "ioctl_code": "0x9B0C1F88",
+        "method": "METHOD_BUFFERED",
+        "handler": "0x1400018E7"
+      },
+      "ioctl_code": "0x9B0C1F88"
+    },
+    {
+      "title": "IOCTL code: 0x9B0C1F8C",
+      "severity": "MEDIUM",
+      "description": "Method: METHOD_BUFFERED, Access: FILE_ANY_ACCESS",
+      "location": "0x140001864",
+      "details": {
+        "ioctl_code": "0x9B0C1F8C",
+        "method": "METHOD_BUFFERED",
+        "handler": "0x1400018D2"
+      },
+      "ioctl_code": "0x9B0C1F8C"
+    },
+    {
+      "title": "IOCTL code: 0x9B0C1FC0",
+      "severity": "MEDIUM",
+      "description": "Method: METHOD_BUFFERED, Access: FILE_ANY_ACCESS",
+      "location": "0x14000186C",
+      "details": {
+        "ioctl_code": "0x9B0C1FC0",
+        "method": "METHOD_BUFFERED",
+        "handler": "0x140001896"
+      },
+      "ioctl_code": "0x9B0C1FC0"
+    },
+    {
+      "title": "IOCTL code: 0x9B0C1FC4",
+      "severity": "MEDIUM",
+      "description": "Method: METHOD_BUFFERED, Access: FILE_ANY_ACCESS",
+      "location": "0x140001874",
+      "details": {
+        "ioctl_code": "0x9B0C1FC4",
+        "method": "METHOD_BUFFERED",
+        "handler": "0x140001886"
+      },
+      "ioctl_code": "0x9B0C1FC4"
+    },
+    {
+      "title": "Missing mitigation: Signature enforcement (FORCE_INTEGRITY)",
+      "severity": "MEDIUM",
+      "description": "Signature enforcement (FORCE_INTEGRITY) is not enabled. Driver can load without a valid Authenticode signature.",
+      "location": "PE DllCharacteristics / LoadConfig",
+      "details": {
+        "mitigation": "Signature enforcement (FORCE_INTEGRITY)",
+        "flag": "FORCE_INTEGRITY"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Driver is NOT HVCI-compatible",
+      "severity": "HIGH",
+      "description": "Driver fails HVCI checks (missing FORCE_INTEGRITY or has W+X sections). Cannot load in HVCI-enabled environments without policy bypass.",
+      "location": "PE headers",
+      "details": {
+        "hvci": "incompatible"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Kernel write gadgets found (8 instances)",
+      "severity": "HIGH",
+      "description": "Multiple 'mov [reg+offset], reg' patterns in driver code. If the register is derived from user input (e.g., IOCTL buffer), this is an arbitrary kernel memory write primitive.",
+      "location": "Code section",
+      "details": {
+        "gadgets": "0x140001070: mov qword ptr [rsp + 8], rbx; 0x140001075: mov qword ptr [rsp + 0x10], rbp; 0x14000107A: mov qword ptr [rsp + 0x18], rsi; 0x1400010A2: mov qword ptr [rip + 0x3cd7], rcx"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'phys mem xlate' at 0x1400014E7",
+      "severity": "HIGH",
+      "description": "Function at 0x1400014E7 performs 'phys mem xlate' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x1400014E7",
+      "details": {
+        "purpose": "phys mem xlate",
+        "function": "0x1400014E7"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'runtime resolve' at 0x140006425",
+      "severity": "HIGH",
+      "description": "Function at 0x140006425 performs 'runtime resolve' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x140006425",
+      "details": {
+        "purpose": "runtime resolve",
+        "function": "0x140006425"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'phys mem xlate' at 0x14000690F",
+      "severity": "HIGH",
+      "description": "Function at 0x14000690F performs 'phys mem xlate' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x14000690F",
+      "details": {
+        "purpose": "phys mem xlate",
+        "function": "0x14000690F"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'phys mem map' at 0x140006EF5",
+      "severity": "HIGH",
+      "description": "Function at 0x140006EF5 performs 'phys mem map' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x140006EF5",
+      "details": {
+        "purpose": "phys mem map",
+        "function": "0x140006EF5"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Hidden function with purpose 'runtime resolve' at 0x140008018",
+      "severity": "HIGH",
+      "description": "Function at 0x140008018 performs 'runtime resolve' but is not reachable via the normal DriverEntry \u2192 MajorFunction call graph.  It may be invoked via a timer, DPC, work item, or kernel callback \u2014 a hidden secondary attack path.",
+      "location": "0x140008018",
+      "details": {
+        "purpose": "runtime resolve",
+        "function": "0x140008018"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "No PreviousMode / RequestorMode check detected",
+      "severity": "HIGH",
+      "description": "Driver does not import ExGetPreviousMode or KeGetPreviousMode and no inline KTHREAD.PreviousMode read was found. Without checking PreviousMode, a kernel-mode caller could be impersonated, or user-mode requests may bypass validation. IOCTLs should verify RequestorMode == UserMode before trusting input.",
+      "location": "Import Table / DriverEntry",
+      "details": {},
+      "ioctl_code": null
+    },
+    {
+      "title": "IOCTL handlers missing InputBufferLength validation",
+      "severity": "HIGH",
+      "description": "The following IOCTL handlers do not appear to validate InputBufferLength before processing the buffer: 0x9B0C1EC0, 0x9B0C1EC4, 0x9B0C1EC8, 0x9B0C1ECC, 0x9B0C1F00, 0x9B0C1F04, 0x9B0C1F08, 0x9B0C1F44, 0x9B0C1F80, 0x9B0C1F84, 0x9B0C1F88, 0x9B0C1F8C, 0x9B0C1FC0, 0x9B0C1FC4. Without size checks, a short buffer could cause pool overread or out-of-bounds writes.",
+      "location": "IOCTL handlers",
+      "details": {
+        "ioctls": [
+          "0x9B0C1EC0",
+          "0x9B0C1EC4",
+          "0x9B0C1EC8",
+          "0x9B0C1ECC",
+          "0x9B0C1F00",
+          "0x9B0C1F04",
+          "0x9B0C1F08",
+          "0x9B0C1F44",
+          "0x9B0C1F80",
+          "0x9B0C1F84",
+          "0x9B0C1F88",
+          "0x9B0C1F8C",
+          "0x9B0C1FC0",
+          "0x9B0C1FC4"
+        ]
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "IOCTL handlers missing NULL buffer check",
+      "severity": "MEDIUM",
+      "description": "These IOCTL handlers may not check for NULL SystemBuffer before dereferencing: 0x9B0C1EC0, 0x9B0C1EC4, 0x9B0C1EC8, 0x9B0C1ECC, 0x9B0C1F00, 0x9B0C1F04, 0x9B0C1F08, 0x9B0C1F44, 0x9B0C1F80, 0x9B0C1F84, 0x9B0C1F88, 0x9B0C1F8C, 0x9B0C1FC0, 0x9B0C1FC4. A zero-length IOCTL request can result in SystemBuffer=NULL, causing a kernel NULL-pointer dereference (BSOD).",
+      "location": "IOCTL handlers",
+      "details": {
+        "ioctls": [
+          "0x9B0C1EC0",
+          "0x9B0C1EC4",
+          "0x9B0C1EC8",
+          "0x9B0C1ECC",
+          "0x9B0C1F00",
+          "0x9B0C1F04",
+          "0x9B0C1F08",
+          "0x9B0C1F44",
+          "0x9B0C1F80",
+          "0x9B0C1F84",
+          "0x9B0C1F88",
+          "0x9B0C1F8C",
+          "0x9B0C1FC0",
+          "0x9B0C1FC4"
+        ]
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "No privilege check APIs imported",
+      "severity": "MEDIUM",
+      "description": "Driver handles IOCTLs but does not import SeSinglePrivilegeCheck, SePrivilegeCheck, or SeAccessCheck. Sensitive operations should verify caller privileges beyond just device handle access rights.",
+      "location": "Import Table",
+      "details": {
+        "checked_apis": [
+          "SeAccessCheck",
+          "SeFastTraverseCheck",
+          "SePrivilegeCheck",
+          "SeSinglePrivilegeCheck"
+        ]
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Driver has Authenticode signature",
+      "severity": "INFO",
+      "description": "PE contains a WIN_CERTIFICATE structure with embedded signature.",
+      "location": "PE Security Directory",
+      "details": {
+        "revision": "0x0200",
+        "cert_count": "2"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Signed by: Microsoft Windows Hardware Compatibility Publisher",
+      "severity": "INFO",
+      "description": "Subject: Microsoft Windows Hardware Compatibility Publisher (Microsoft Corporation)\nIssuer: Microsoft Windows Third Party Component CA 2012\nSerial: 33000000b5213fca1e4aa03de40000000000b5\nKey: RSA 2048-bit\nValid until: 2021-12-02T22:15:33+00:00",
+      "location": "Authenticode Certificate",
+      "details": {
+        "signer_cn": "Microsoft Windows Hardware Compatibility Publisher",
+        "signer_org": "Microsoft Corporation",
+        "issuer": "Microsoft Windows Third Party Component CA 2012",
+        "serial": "33000000b5213fca1e4aa03de40000000000b5",
+        "thumbprint": "38b7c74e37392713e436e19a2be053100115da88"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Signing certificate EXPIRED (valid until 2021-12-02T22:15:33+00:00)",
+      "severity": "HIGH",
+      "description": "The code-signing certificate has expired. While drivers with a valid timestamp counter-signature remain valid after expiry, an expired cert without a timestamp means the signature is no longer trusted. This is also common in BYOVD \u2014 old vulnerable drivers with expired certs that were signed before revocation.",
+      "location": "Authenticode Certificate",
+      "details": {
+        "not_after": "2021-12-02T22:15:33+00:00"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "No timestamp countersignature detected",
+      "severity": "MEDIUM",
+      "description": "The Authenticode signature has no countersignature timestamp. Without a timestamp, the signature becomes invalid after the signing certificate expires. Timestamped signatures remain valid indefinitely. This affects driver loadability.",
+      "location": "Authenticode Certificate",
+      "details": {},
+      "ioctl_code": null
+    },
+    {
+      "title": "PKCS#7 signature verifies cryptographically",
+      "severity": "INFO",
+      "description": "The primary Authenticode PKCS#7 signature was verified against the signer certificate's public key.",
+      "location": "Authenticode Certificate",
+      "details": {},
+      "ioctl_code": null
+    },
+    {
+      "title": "Authenticode PE hash matches (binary not tampered)",
+      "severity": "INFO",
+      "description": "Recomputed sha256 hash of the PE image matches the value embedded in SpcIndirectDataContent.",
+      "location": "Authenticode Signature",
+      "details": {},
+      "ioctl_code": null
+    },
+    {
+      "title": "Chain anchored to kernel-trusted root (ms-root-referenced)",
+      "severity": "INFO",
+      "description": "Chain terminates at 'Microsoft Root Certificate Authority 2010' \u2014 recognised as kernel-trusted (ms-root-referenced).",
+      "location": "Certificate Chain",
+      "details": {
+        "kind": "ms-root-referenced",
+        "matched_thumbprint": "",
+        "matched_name": "Microsoft Root Certificate Authority 2010",
+        "trusted_for_kernel": true
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Load may fail: Expired certificate without timestamp",
+      "severity": "HIGH",
+      "description": "The signing certificate has expired and no countersignature timestamp was detected. Without a timestamp proving the driver was signed before expiry, Windows may reject the signature.",
+      "location": "Signature Policy",
+      "details": {},
+      "ioctl_code": null
+    },
+    {
+      "title": "HVCI incompatible: missing FORCE_INTEGRITY flag",
+      "severity": "HIGH",
+      "description": "This driver is NOT compatible with Hypervisor-protected Code Integrity (HVCI / Memory Integrity). On systems with HVCI enabled, Windows will BLOCK this driver from loading. Issues: missing FORCE_INTEGRITY flag.",
+      "location": "PE Headers / Sections",
+      "details": {
+        "force_integrity": "False",
+        "has_wx_sections": "False"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Driver architecture: x64",
+      "severity": "INFO",
+      "description": "64-bit driver \u2014 loads on x64 Windows",
+      "location": "PE Header",
+      "details": {},
+      "ioctl_code": null
+    },
+    {
+      "title": "Load compatibility: BLOCKED \u2014 3 issue(s) prevent loading",
+      "severity": "HIGH",
+      "description": "  [BLOCKED] Expired + No Timestamp: Expired cert without countersignature timestamp\n  [BLOCKED] HVCI: Blocked when Memory Integrity is ON (missing FORCE_INTEGRITY flag)\n  [PASS] Secure Boot: Compatible (signed driver)\n  [BLOCKED] Timestamp: Expired cert + no timestamp = signature rejected",
+      "location": "Load Policy Analysis",
+      "details": {
+        "can_load": "False",
+        "blockers": [
+          "Expired + No Timestamp",
+          "HVCI",
+          "Timestamp"
+        ],
+        "passes": [
+          "Secure Boot"
+        ],
+        "matrix": {
+          "default": {
+            "verdict": "WILL_LOAD",
+            "blockers": [],
+            "passes": [
+              "Signed",
+              "Chain anchored (ms-root-referenced)",
+              "Signed 2021-05-10 (pre-expiry) \u2014 cert expiry ignored by Windows",
+              "Signature crypto + PE hash OK"
+            ]
+          },
+          "secure_boot": {
+            "verdict": "WILL_LOAD",
+            "blockers": [],
+            "passes": [
+              "Signed",
+              "Chain anchored (ms-root-referenced)",
+              "Signed 2021-05-10 (pre-expiry) \u2014 cert expiry ignored by Windows",
+              "Signature crypto + PE hash OK"
+            ]
+          },
+          "hvci": {
+            "verdict": "WILL_NOT_LOAD",
+            "blockers": [
+              "FORCE_INTEGRITY flag not set (HVCI requires it on the PE header)"
+            ],
+            "passes": [
+              "Signed",
+              "Chain anchored (ms-root-referenced)",
+              "Signed 2021-05-10 (pre-expiry) \u2014 cert expiry ignored by Windows",
+              "Signature crypto + PE hash OK",
+              "WHQL attestation EKU present (Secured-Core ready)"
+            ]
+          },
+          "test_signing": {
+            "verdict": "WILL_LOAD",
+            "blockers": [],
+            "passes": [
+              "Any valid signature accepted under test-signing"
+            ]
+          },
+          "s_mode": {
+            "verdict": "WILL_NOT_LOAD",
+            "blockers": [
+              "No Authenticode page hashes (Secured-Core requires per-page integrity)"
+            ],
+            "passes": [
+              "WHQL attestation EKU present"
+            ]
+          }
+        }
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Device Access Security Audit",
+      "severity": "MEDIUM",
+      "description": "Exposed via symlinks: \\DosDevices\\DBUtil_2_5",
+      "location": "DriverEntry",
+      "details": {
+        "create_api": "Unknown",
+        "secure_open": "False",
+        "exclusive": "False",
+        "device_type": "unknown",
+        "sddl": "none",
+        "symlinks": [
+          "\\DosDevices\\DBUtil_2_5"
+        ],
+        "create_checks": [],
+        "issues": [
+          "has_symlinks"
+        ]
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "IOCTL 0x9B0C1EC0 behavior: MEMORY: MmAllocateContiguousMemorySpecifyCache, MmGetPhysicalAddress",
+      "severity": "HIGH",
+      "description": "Handler at 0x1400017C2\nSecurity checks: Returns STATUS_INVALID_PARAMETER, Returns STATUS_INVALID_PARAMETER\nAPI calls (2):\n  [MEMORY] MmAllocateContiguousMemorySpecifyCache \u2014 Allocate contiguous with cache spec\n  [MEMORY] MmGetPhysicalAddress \u2014 Translate virtual to physical address\nRisk: No IRP completion detected (may leak IRP or cause hang)",
+      "location": "0x1400017C2",
+      "details": {
+        "ioctl": "0x9B0C1EC0",
+        "purpose": "phys mem xlate",
+        "handler": "0x1400017C2",
+        "api_calls": [
+          "MmAllocateContiguousMemorySpecifyCache",
+          "MmGetPhysicalAddress"
+        ],
+        "categories": [
+          "MEMORY"
+        ],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER",
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "irp_completion": "False",
+        "inline_ops": []
+      },
+      "ioctl_code": "0x9B0C1EC0"
+    },
+    {
+      "title": "IOCTL 0x9B0C1EC4 behavior: No significant operations detected",
+      "severity": "HIGH",
+      "description": "Handler at 0x140001795\nSecurity checks: NONE\nAPI calls (0):\n\nRisk: No IRP completion detected (may leak IRP or cause hang)",
+      "location": "0x140001795",
+      "details": {
+        "ioctl": "0x9B0C1EC4",
+        "purpose": "stub (no observable calls)",
+        "handler": "0x140001795",
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "irp_completion": "False",
+        "inline_ops": []
+      },
+      "ioctl_code": "0x9B0C1EC4"
+    },
+    {
+      "title": "IOCTL 0x9B0C1EC8 behavior: No significant operations detected",
+      "severity": "HIGH",
+      "description": "Handler at 0x140001757\nSecurity checks: Returns STATUS_INVALID_PARAMETER\nAPI calls (0):\n\nRisk: No IRP completion detected (may leak IRP or cause hang)",
+      "location": "0x140001757",
+      "details": {
+        "ioctl": "0x9B0C1EC8",
+        "purpose": "stub (no observable calls)",
+        "handler": "0x140001757",
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "irp_completion": "False",
+        "inline_ops": []
+      },
+      "ioctl_code": "0x9B0C1EC8"
+    },
+    {
+      "title": "IOCTL 0x9B0C1ECC behavior: No significant operations detected",
+      "severity": "HIGH",
+      "description": "Handler at 0x14000171B\nSecurity checks: Returns STATUS_INVALID_PARAMETER\nAPI calls (1):\n  [OTHER] MmFreeContiguousMemorySpecifyCache \u2014 Imported function: MmFreeContiguousMemorySpecifyCache\nRisk: No IRP completion detected (may leak IRP or cause hang)",
+      "location": "0x14000171B",
+      "details": {
+        "ioctl": "0x9B0C1ECC",
+        "purpose": "",
+        "handler": "0x14000171B",
+        "api_calls": [
+          "MmFreeContiguousMemorySpecifyCache"
+        ],
+        "categories": [
+          "OTHER"
+        ],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "irp_completion": "False",
+        "inline_ops": []
+      },
+      "ioctl_code": "0x9B0C1ECC"
+    },
+    {
+      "title": "IOCTL 0x9B0C1F00 behavior: INLINE: PORT_read, PORT_write",
+      "severity": "HIGH",
+      "description": "Handler at 0x1400016DF\nSecurity checks: Returns STATUS_INVALID_PARAMETER\nAPI calls (2):\n  [OTHER] KeSetPriorityThread \u2014 Imported function: KeSetPriorityThread\n  [OTHER] KeSetPriorityThread \u2014 Imported function: KeSetPriorityThread\nRisk: No IRP completion detected (may leak IRP or cause hang)",
+      "location": "0x1400016DF",
+      "details": {
+        "ioctl": "0x9B0C1F00",
+        "purpose": "port I/O",
+        "handler": "0x1400016DF",
+        "api_calls": [
+          "KeSetPriorityThread",
+          "KeSetPriorityThread"
+        ],
+        "categories": [
+          "OTHER"
+        ],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "irp_completion": "False",
+        "inline_ops": [
+          "PORT_write",
+          "PORT_read",
+          "PORT_write",
+          "PORT_write",
+          "PORT_read",
+          "PORT_write",
+          "PORT_write",
+          "PORT_read",
+          "PORT_write",
+          "PORT_write",
+          "PORT_read",
+          "PORT_write"
+        ]
+      },
+      "ioctl_code": "0x9B0C1F00"
+    },
+    {
+      "title": "IOCTL 0x9B0C1F04 behavior: No significant operations detected",
+      "severity": "HIGH",
+      "description": "Handler at 0x1400016A3\nSecurity checks: Returns STATUS_INVALID_PARAMETER\nAPI calls (1):\n  [OTHER] KeInsertQueueDpc \u2014 Imported function: KeInsertQueueDpc\nRisk: No IRP completion detected (may leak IRP or cause hang)",
+      "location": "0x1400016A3",
+      "details": {
+        "ioctl": "0x9B0C1F04",
+        "purpose": "",
+        "handler": "0x1400016A3",
+        "api_calls": [
+          "KeInsertQueueDpc"
+        ],
+        "categories": [
+          "OTHER"
+        ],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "irp_completion": "False",
+        "inline_ops": []
+      },
+      "ioctl_code": "0x9B0C1F04"
+    },
+    {
+      "title": "IOCTL 0x9B0C1F08 behavior: No significant operations detected",
+      "severity": "HIGH",
+      "description": "Handler at 0x140001667\nSecurity checks: Returns STATUS_INVALID_PARAMETER\nAPI calls (0):\n\nRisk: No IRP completion detected (may leak IRP or cause hang)",
+      "location": "0x140001667",
+      "details": {
+        "ioctl": "0x9B0C1F08",
+        "purpose": "stub (no observable calls)",
+        "handler": "0x140001667",
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "irp_completion": "False",
+        "inline_ops": []
+      },
+      "ioctl_code": "0x9B0C1F08"
+    },
+    {
+      "title": "IOCTL 0x9B0C1F44 behavior: MEMORY: MmMapIoSpace, MmUnmapIoSpace",
+      "severity": "HIGH",
+      "description": "Handler at 0x14000195C\nSecurity checks: Returns STATUS_INVALID_PARAMETER\nAPI calls (2):\n  [MEMORY] MmMapIoSpace \u2014 Map physical address to virtual kernel address\n  [MEMORY] MmUnmapIoSpace \u2014 Unmap previously mapped physical memory\nRisk: Direct hardware/CPU manipulation; No IRP completion detected (may leak IRP or cause hang)",
+      "location": "0x14000195C",
+      "details": {
+        "ioctl": "0x9B0C1F44",
+        "purpose": "phys mem map",
+        "handler": "0x14000195C",
+        "api_calls": [
+          "MmMapIoSpace",
+          "MmUnmapIoSpace"
+        ],
+        "categories": [
+          "MEMORY"
+        ],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "Direct hardware/CPU manipulation",
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "irp_completion": "False",
+        "inline_ops": []
+      },
+      "ioctl_code": "0x9B0C1F44"
+    },
+    {
+      "title": "IOCTL 0x9B0C1F80 behavior: No significant operations detected",
+      "severity": "HIGH",
+      "description": "Handler at 0x140001928\nSecurity checks: NONE\nAPI calls (0):\n\nRisk: No IRP completion detected (may leak IRP or cause hang)",
+      "location": "0x140001928",
+      "details": {
+        "ioctl": "0x9B0C1F80",
+        "purpose": "stub (no observable calls)",
+        "handler": "0x140001928",
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "irp_completion": "False",
+        "inline_ops": []
+      },
+      "ioctl_code": "0x9B0C1F80"
+    },
+    {
+      "title": "IOCTL 0x9B0C1F84 behavior: No significant operations detected",
+      "severity": "HIGH",
+      "description": "Handler at 0x14000191E\nSecurity checks: NONE\nAPI calls (0):\n\nRisk: No IRP completion detected (may leak IRP or cause hang)",
+      "location": "0x14000191E",
+      "details": {
+        "ioctl": "0x9B0C1F84",
+        "purpose": "stub (no observable calls)",
+        "handler": "0x14000191E",
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "irp_completion": "False",
+        "inline_ops": []
+      },
+      "ioctl_code": "0x9B0C1F84"
+    },
+    {
+      "title": "IOCTL 0x9B0C1F88 behavior: No significant operations detected",
+      "severity": "HIGH",
+      "description": "Handler at 0x1400018E7\nSecurity checks: NONE\nAPI calls (0):\n\nRisk: No IRP completion detected (may leak IRP or cause hang)",
+      "location": "0x1400018E7",
+      "details": {
+        "ioctl": "0x9B0C1F88",
+        "purpose": "stub (no observable calls)",
+        "handler": "0x1400018E7",
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "irp_completion": "False",
+        "inline_ops": []
+      },
+      "ioctl_code": "0x9B0C1F88"
+    },
+    {
+      "title": "IOCTL 0x9B0C1F8C behavior: INLINE: PORT_read, PORT_write",
+      "severity": "HIGH",
+      "description": "Handler at 0x1400018D2\nSecurity checks: Returns STATUS_INVALID_PARAMETER\nAPI calls (2):\n  [OTHER] KeSetPriorityThread \u2014 Imported function: KeSetPriorityThread\n  [OTHER] KeSetPriorityThread \u2014 Imported function: KeSetPriorityThread\nRisk: No IRP completion detected (may leak IRP or cause hang)",
+      "location": "0x1400018D2",
+      "details": {
+        "ioctl": "0x9B0C1F8C",
+        "purpose": "port I/O",
+        "handler": "0x1400018D2",
+        "api_calls": [
+          "KeSetPriorityThread",
+          "KeSetPriorityThread"
+        ],
+        "categories": [
+          "OTHER"
+        ],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "irp_completion": "False",
+        "inline_ops": [
+          "PORT_write",
+          "PORT_read",
+          "PORT_read"
+        ]
+      },
+      "ioctl_code": "0x9B0C1F8C"
+    },
+    {
+      "title": "IOCTL 0x9B0C1FC0 behavior: No significant operations detected",
+      "severity": "HIGH",
+      "description": "Handler at 0x140001896\nSecurity checks: Returns STATUS_INVALID_PARAMETER\nAPI calls (0):\n\nRisk: No IRP completion detected (may leak IRP or cause hang)",
+      "location": "0x140001896",
+      "details": {
+        "ioctl": "0x9B0C1FC0",
+        "purpose": "stub (no observable calls)",
+        "handler": "0x140001896",
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "irp_completion": "False",
+        "inline_ops": []
+      },
+      "ioctl_code": "0x9B0C1FC0"
+    },
+    {
+      "title": "IOCTL 0x9B0C1FC4 behavior: No significant operations detected",
+      "severity": "HIGH",
+      "description": "Handler at 0x140001886\nSecurity checks: Returns STATUS_INVALID_PARAMETER\nAPI calls (0):\n\nRisk: No IRP completion detected (may leak IRP or cause hang)",
+      "location": "0x140001886",
+      "details": {
+        "ioctl": "0x9B0C1FC4",
+        "purpose": "stub (no observable calls)",
+        "handler": "0x140001886",
+        "api_calls": [],
+        "categories": [],
+        "security_checks": [
+          "Returns STATUS_INVALID_PARAMETER"
+        ],
+        "risk_factors": [
+          "No IRP completion detected (may leak IRP or cause hang)"
+        ],
+        "irp_completion": "False",
+        "inline_ops": []
+      },
+      "ioctl_code": "0x9B0C1FC4"
+    },
+    {
+      "title": "Exploit primitives for IOCTL 0x9B0C1F44: physical-rw",
+      "severity": "HIGH",
+      "description": "IOCTL 0x9B0C1F44 (METHOD_BUFFERED) provides the following exploit primitives: physical-rw. Handler at 0x14000195C.",
+      "location": "0x14000195C",
+      "details": {
+        "ioctl": "0x9B0C1F44",
+        "primitives": [
+          "physical-rw"
+        ],
+        "handler": "0x14000195C"
+      },
+      "ioctl_code": "0x9B0C1F44"
+    },
+    {
+      "title": "Exploit Primitive Summary",
+      "severity": "HIGH",
+      "description": "Across 1 IOCTL(s), the driver exposes 1 distinct exploit primitive type(s):\n  0x9B0C1F44: physical-rw",
+      "location": "All IOCTL handlers",
+      "details": {
+        "total_ioctls": "1",
+        "all_primitives": [
+          "physical-rw"
+        ],
+        "per_ioctl": {
+          "0x9B0C1F44": [
+            "physical-rw"
+          ]
+        }
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP/JOP gadgets found: 622 total (misc: 252, reg-control: 151, memory-read: 90, memory-write: 84, stack-pivot: 34, jmp-reg: 10, privilege-op: 1)",
+      "severity": "MEDIUM",
+      "description": "Found 622 usable ROP/JOP gadgets in executable sections. Since many drivers lack ASLR, these gadgets are at predictable addresses and can be chained for kernel exploitation.\n\nTop gadgets by type:\n  [privilege-op] (1 found):\n    0x1400013DE: wbinvd ; push ax ; in al, 0x81 ; out 0x81, al ; pop ax ; ret\n  [stack-pivot] (34 found):\n    0x14000123E: pop rsp ; and al, 0x30 ; add rsp, 0x20 ; pop rdi ; ret\n    0x1400012C7: pop rsp ; and al, 0x30 ; mov rsi, qword ptr [rsp + 0x38] ; add rsp, 0x20 ; pop rdi ; ret\n    0x140001B94: leave ; call 0x140001ad0 ; add rsp, 0x28 ; ret\n  [memory-write] (84 found):\n    0x1400014C9: mov dword ptr [rcx + 0x18], eax ; ret\n    0x1400014C8: mov qword ptr [r9 + 0x18], rax ; ret\n    0x1400014C7: sub al, 0x49 ; mov dword ptr [rcx + 0x18], eax ; ret\n  [memory-read] (90 found):\n    0x140001188: mov esi, dword ptr [rsp + 0x40] ; add rsp, 0x20 ; pop rdi ; ret\n    0x140001187: mov rsi, qword ptr [rsp + 0x40] ; add rsp, 0x20 ; pop rdi ; ret\n    0x140001185: and al, 0x38 ; mov rsi, qword ptr [rsp + 0x40] ; add rsp, 0x20 ; pop rdi ; ret\n  [reg-control] (151 found):\n    0x140001190: pop rdi ; ret\n    0x14000118D: add esp, 0x20 ; pop rdi ; ret\n    0x14000118C: add rsp, 0x20 ; pop rdi ; ret\n  [jmp-reg] (10 found):\n    0x140001BEE: add byte ptr [rax], al ; jmp rax\n    0x140001BEC: add byte ptr [rax], al ; add byte ptr [rax], al ; jmp rax\n    0x140001BEA: test byte ptr [rax], al ; add byte ptr [rax], al ; add byte ptr [rax], al ; jmp rax",
+      "location": "Executable sections",
+      "details": {
+        "total_gadgets": "622",
+        "by_type": {
+          "stack-pivot": 34,
+          "reg-control": 151,
+          "memory-read": 90,
+          "memory-write": 84,
+          "privilege-op": 1,
+          "jmp-reg": 10,
+          "misc": 252
+        }
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [privilege-op]: wbinvd ; push ax ; in al, 0x81 ; out 0x81, al ; pop ax ; ret",
+      "severity": "HIGH",
+      "description": "Gadget at 0x1400013DE (6 insns). Type: privilege-op. Bytes: 0f096650e481e6816658c3",
+      "location": "0x1400013DE",
+      "details": {
+        "type": "privilege-op",
+        "asm": "wbinvd ; push ax ; in al, 0x81 ; out 0x81, al ; pop ax ; ret",
+        "bytes": "0f096650e481e6816658c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [memory-write]: mov dword ptr [rcx + 0x18], eax ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x1400014C9 (2 insns). Type: memory-write. Bytes: 894118c3",
+      "location": "0x1400014C9",
+      "details": {
+        "type": "memory-write",
+        "asm": "mov dword ptr [rcx + 0x18], eax ; ret",
+        "bytes": "894118c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [memory-write]: mov qword ptr [r9 + 0x18], rax ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x1400014C8 (2 insns). Type: memory-write. Bytes: 49894118c3",
+      "location": "0x1400014C8",
+      "details": {
+        "type": "memory-write",
+        "asm": "mov qword ptr [r9 + 0x18], rax ; ret",
+        "bytes": "49894118c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [memory-write]: sub al, 0x49 ; mov dword ptr [rcx + 0x18], eax ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x1400014C7 (3 insns). Type: memory-write. Bytes: 2c49894118c3",
+      "location": "0x1400014C7",
+      "details": {
+        "type": "memory-write",
+        "asm": "sub al, 0x49 ; mov dword ptr [rcx + 0x18], eax ; ret",
+        "bytes": "2c49894118c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [memory-write]: sub al, 0x49 ; mov dword ptr [rcx + 0x18], eax ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x1400014C6 (3 insns). Type: memory-write. Bytes: 412c49894118c3",
+      "location": "0x1400014C6",
+      "details": {
+        "type": "memory-write",
+        "asm": "sub al, 0x49 ; mov dword ptr [rcx + 0x18], eax ; ret",
+        "bytes": "412c49894118c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [memory-write]: mov dword ptr [rcx + 0x2c], eax ; mov qword ptr [r9 + 0x18], rax ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x1400014C5 (3 insns). Type: memory-write. Bytes: 89412c49894118c3",
+      "location": "0x1400014C5",
+      "details": {
+        "type": "memory-write",
+        "asm": "mov dword ptr [rcx + 0x2c], eax ; mov qword ptr [r9 + 0x18], rax ; ret",
+        "bytes": "89412c49894118c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [stack-pivot]: pop rsp ; and al, 0x30 ; add rsp, 0x20 ; pop rdi ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x14000123E (5 insns). Type: stack-pivot. Bytes: 5c24304883c4205fc3",
+      "location": "0x14000123E",
+      "details": {
+        "type": "stack-pivot",
+        "asm": "pop rsp ; and al, 0x30 ; add rsp, 0x20 ; pop rdi ; ret",
+        "bytes": "5c24304883c4205fc3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [stack-pivot]: pop rsp ; and al, 0x30 ; mov rsi, qword ptr [rsp + 0x38] ; add rsp, 0x20 ; pop rdi ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x1400012C7 (6 insns). Type: stack-pivot. Bytes: 5c2430488b7424384883c4205fc3",
+      "location": "0x1400012C7",
+      "details": {
+        "type": "stack-pivot",
+        "asm": "pop rsp ; and al, 0x30 ; mov rsi, qword ptr [rsp + 0x38] ; add rsp, 0x20 ; pop rdi ; ret",
+        "bytes": "5c2430488b7424384883c4205fc3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [stack-pivot]: leave ; call 0x140001ad0 ; add rsp, 0x28 ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x140001B94 (4 insns). Type: stack-pivot. Bytes: c9e836ffffff4883c428c3",
+      "location": "0x140001B94",
+      "details": {
+        "type": "stack-pivot",
+        "asm": "leave ; call 0x140001ad0 ; add rsp, 0x28 ; ret",
+        "bytes": "c9e836ffffff4883c428c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [stack-pivot]: leave ; jne 0x140001cd0 ; and r8, 0xf ; je 0x140001ce8 ; movups xmmword ptr [rcx + r8 - 0x10], xmm0 ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x140001CD9 (6 insns). Type: stack-pivot. Bytes: c975f44983e00f7406420f114401f0c3",
+      "location": "0x140001CD9",
+      "details": {
+        "type": "stack-pivot",
+        "asm": "leave ; jne 0x140001cd0 ; and r8, 0xf ; je 0x140001ce8 ; movups xmmword ptr [rcx + r8 - 0x10], xmm0 ; ret",
+        "bytes": "c975f44983e00f7406420f114401f0c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "ROP gadget [stack-pivot]: leave ; dec r8 ; mov byte ptr [rcx], al ; jne 0x140001ee0 ; mov rax, r11 ; ret",
+      "severity": "MEDIUM",
+      "description": "Gadget at 0x140001EE6 (6 insns). Type: stack-pivot. Bytes: c949ffc8880175f2498bc3c3",
+      "location": "0x140001EE6",
+      "details": {
+        "type": "stack-pivot",
+        "asm": "leave ; dec r8 ; mov byte ptr [rcx], al ; jne 0x140001ee0 ; mov rax, r11 ; ret",
+        "bytes": "c949ffc8880175f2498bc3c3"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Exploit Chain: Physical Memory Attack",
+      "severity": "CRITICAL",
+      "description": "Difficulty: MEDIUM \u2014 requires physical-to-virtual translation\nRequired primitives: physical-rw\n\nAttack steps:\n  1. Use phys-rw (IOCTL 0x9B0C1F44 [phys mem map]) to scan physical memory for EPROCESS signatures\n  2. Locate current process EPROCESS in physical memory\n  3. Overwrite Token field with SYSTEM process token\n  4. Alternative: map ntoskrnl .text, patch code inline\n  5. Spawn SYSTEM shell",
+      "location": "Exploit Strategy",
+      "details": {
+        "chain_name": "Physical Memory Attack",
+        "primitives": [
+          "physical-rw"
+        ],
+        "difficulty": "MEDIUM \u2014 requires physical-to-virtual translation"
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Total exploit chains identified: 1",
+      "severity": "CRITICAL",
+      "description": "The driver's exposed primitives can be combined into 1 distinct exploit chain(s):\n  - Physical Memory Attack [MEDIUM]",
+      "location": "Exploit Strategy",
+      "details": {
+        "chain_count": "1",
+        "chains": [
+          "Physical Memory Attack"
+        ]
+      },
+      "ioctl_code": null
+    },
+    {
+      "title": "Attack Surface Score: 38/100 [LOW]",
+      "severity": "LOW",
+      "description": "Low risk \u2014 limited attack surface with reasonable mitigations\n\nScore breakdown:\n  IOCTL Exposure    : 14/20\n  Exploit Primitives: 7/25  (physical-rw)\n  Missing Mitigations: 4/15\n  Certificate Issues : 10/10\n  Dangerous Imports  : 2/10",
+      "location": "Overall Assessment",
+      "details": {
+        "score": "38",
+        "risk": "LOW",
+        "primitives": [
+          "physical-rw"
+        ],
+        "ioctl_count": "14",
+        "method_neither_count": "0"
+      },
+      "ioctl_code": null
+    }
+  ]
+}

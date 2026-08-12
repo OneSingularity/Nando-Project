@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Config">
+      <UniqueIdentifier>{6f9d77f8-9a99-4d69-a1b7-d46e9dfefb8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scanner">
+      <UniqueIdentifier>{894b46bb-9fbf-4050-8b1e-d4c3abff68d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hooks">
+      <UniqueIdentifier>{8b7c4a1b-3efd-4e98-bd6c-48762512adcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{c66e94cc-dfde-4122-8b22-87ff632e12ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ESP">
+      <UniqueIdentifier>{a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ESP\Classes">
+      <UniqueIdentifier>{b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ESP\Features">
+      <UniqueIdentifier>{c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ESP\Core">
+      <UniqueIdentifier>{d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Config\Configs.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="Scanner\OffsetScanner.cpp">
+      <Filter>Scanner</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\HooksCore.cpp">
+      <Filter>Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\HK_PeekMessage.cpp">
+      <Filter>Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\HK_ProcessEvent.cpp">
+      <Filter>Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\HK_PostRender.cpp">
+      <Filter>Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="Interface\Menu.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="ESP\Classes\ClassIndices.cpp">
+      <Filter>ESP\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="ESP\Features\PlayerDinoESP.cpp">
+      <Filter>ESP\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="ESP\Features\StructureESP.cpp">
+      <Filter>ESP\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="ESP\Core\EspCore.cpp">
+      <Filter>ESP\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK_Impl.cpp" />
+    <ClCompile Include="Exploits\LongArms.cpp" />
+    <ClCompile Include="Exploits\Suicide.cpp" />
+    <ClCompile Include="Exploits\GauntFloat.cpp" />
+    <ClCompile Include="Exploits\ExplorerNotes.cpp" />
+    <ClCompile Include="Exploits\RunWhileReloading.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Config\Configs.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Scanner\OffsetScanner.h">
+      <Filter>Scanner</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\Hooks.h">
+      <Filter>Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface\Menu.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="ESP\Classes\ClassIndices.h">
+      <Filter>ESP\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="ESP\Features\PlayerDinoESP.h">
+      <Filter>ESP\Features</Filter>
+    </ClInclude>
+    <ClInclude Include="ESP\Features\StructureESP.h">
+      <Filter>ESP\Features</Filter>
+    </ClInclude>
+    <ClInclude Include="ESP\Core\EspCore.h">
+      <Filter>ESP\Core</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

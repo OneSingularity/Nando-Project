@@ -1,0 +1,18 @@
+---
+description: Environment setup and stability rules for VulnDriver lab
+alwaysApply: true
+---
+
+# Lab Environment Rules
+
+## System Configuration
+- **VBS/HVCI MUST be disabled**. This is the superior choice for BYOVD research to avoid `0x4E` PFN_LIST_CORRUPT bugchecks and enable local kernel debugging (`kd -kl`).
+- **Hypervisor MUST be off**: Use `bcdedit /set hypervisorlaunchtype off` to ensure clean physical memory mapping.
+
+## Driver Safety (CorsairLLAccess64)
+- **NO LOOPS**: Never scan physical memory in a loop. Even "map-only" loops trigger crashes.
+- **SURGICAL READS ONLY**: Perform single-page maps for specific known addresses (DirBase, EPROCESS).
+- **CR3 Source**: Always get `DirBase` from a reliable debugger (`kd -kl` or `livekd`) rather than scanning.
+
+## Paths
+- Use `C:\VulnDriver` junction to avoid space-related path issues in debugger tools.
