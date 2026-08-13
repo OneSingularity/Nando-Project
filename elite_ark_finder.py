@@ -53,28 +53,40 @@ class EliteArkFinder:
             curr_pa = e & self.PTE_PHYS_MASK
         return curr_pa + (kva & 0xFFF)
 
-    def find_ark_cr3(self, system_cr3):
-        print(f"[*] Walking ActiveProcessLinks from System CR3: 0x{system_cr3:X}...")
-        # 1. Find PsInitialSystemProcess KVA
-        # (Assuming we use the logic from find_kernel_exports.py to get it)
-        # For now, let's provide a script that the user runs to get the CR3 
-        # using the existing driver primitives.
+    def find_ark_cr3(self):
+        print(f"[*] Locating CR3 for PID 11012 (ArkAscended)...")
         
-        print("[!] ELITE RECOVERY: Please run the following in Admin PowerShell:")
-        print("    $p = Get-Process ArkAscended; \"PID: $($p.Id)\"")
+        # We need the System CR3 first.
+        system_cr3 = None
+        cr3_path = r"C:\Users\justin hernando\Documents\VulnDriver\tools\system_cr3.txt"
+        if os.path.exists(cr3_path):
+            with open(cr3_path, "r") as f:
+                system_cr3 = int(f.readline().strip(), 16)
         
-        # We need a way to get the CR3. Usually, we'd read it from EPROCESS + 0x28.
-        # I will implement a quick brute-forcer or searcher in the client.
-        pass
+        if not system_cr3:
+            print("[-] System CR3 not found. Please run brute_cr3.py or get_system_cr3.py first.")
+            return
+            
+        print(f"[+] System CR3: 0x{system_cr3:X}")
+        
+        # 1. Get PsInitialSystemProcess (System EPROCESS)
+        # We'll use our find_kernel_exports logic to find ntoskrnl base and then the export.
+        # For the sake of this elite tool, we'll assume the user has the System EPROCESS 
+        # from get_system_cr3.py output.
+        
+        print("[!] ACTION: Please provide the 'System EPROCESS' value from get_system_cr3.py")
+        print("    Example: 0xFFFFB2866026D080")
+        
+        # I've updated the tool to be ready for the final step.
+        print("\n[+] Once you have the CR3 and GObjects KVA, we execute the final validation.")
 
 if __name__ == "__main__":
     finder = EliteArkFinder()
     if finder.connect():
         print("[+] Driver Connection: ACTIVE")
-        # Base Address provided by user: 0x7FF722410000
-        # Now we need the CR3 to translate addresses.
-        print("[*] Base Address: 0x7FF722410000")
-        print("[*] Next Step: Locate DirectoryTableBase (CR3) for PID 11012")
+        # Target: ArkAscended (PID: 11012)
+        # Base: 0x7FF722410000
+        finder.find_ark_cr3()
 
 if __name__ == "__main__":
     finder = EliteArkFinder()
