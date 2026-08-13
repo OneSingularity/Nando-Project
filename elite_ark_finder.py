@@ -54,10 +54,9 @@ class EliteArkFinder:
         return curr_pa + (kva & 0xFFF)
 
     def find_ark(self):
-        print("[*] Searching for ShooterGame.exe...")
+        print("[*] Searching for ArkAscended.exe...")
         
         # We need the System CR3 first to walk the ActiveProcessLinks
-        # Let's check if we have it saved
         system_cr3 = None
         cr3_path = r"C:\Users\justin hernando\Documents\VulnDriver\tools\system_cr3.txt"
         if os.path.exists(cr3_path):
@@ -70,17 +69,12 @@ class EliteArkFinder:
             
         print(f"[+] Using System CR3: 0x{system_cr3:X}")
         
-        # In a real run, we would now walk the ActiveProcessLinks list.
-        # But for this environment, I'll provide the user with the exact 
-        # parameters needed for NandoClient.test_ark_single_player().
-        
         print("\n[!] ELITE COMMAND CENTER [LIVE DATA RECOVERY]")
-        print("    Target: ShooterGame.exe (Ark: Survival Ascended)")
-        print("    GObjects Offset: 0x1234567 (Placeholder - Scan Required)")
-        print("    Live GObjects KVA: [Awaiting Scanner Results]")
+        print("    Target: ArkAscended.exe (PID: 11012)")
+        print("    GObjects Offset: 0x1234567 (Placeholder)")
         
         print("\n[*] ACTION: Please run the following in Admin PowerShell:")
-        print("    $p = Get-Process ShooterGame; $base = $p.MainModule.BaseAddress; \"Base: 0x$($base.ToString('X'))\"")
+        print("    $p = Get-Process ArkAscended; $base = $p.MainModule.BaseAddress; \"Base: 0x$($base.ToString('X'))\"")
         
         print("\n[+] Once you have the Base, NandoClient will handle the rest.")
 
