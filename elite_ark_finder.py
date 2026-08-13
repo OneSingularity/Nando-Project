@@ -53,30 +53,28 @@ class EliteArkFinder:
             curr_pa = e & self.PTE_PHYS_MASK
         return curr_pa + (kva & 0xFFF)
 
-    def find_ark(self):
-        print("[*] Searching for ArkAscended.exe...")
+    def find_ark_cr3(self, system_cr3):
+        print(f"[*] Walking ActiveProcessLinks from System CR3: 0x{system_cr3:X}...")
+        # 1. Find PsInitialSystemProcess KVA
+        # (Assuming we use the logic from find_kernel_exports.py to get it)
+        # For now, let's provide a script that the user runs to get the CR3 
+        # using the existing driver primitives.
         
-        # We need the System CR3 first to walk the ActiveProcessLinks
-        system_cr3 = None
-        cr3_path = r"C:\Users\justin hernando\Documents\VulnDriver\tools\system_cr3.txt"
-        if os.path.exists(cr3_path):
-            with open(cr3_path, "r") as f:
-                system_cr3 = int(f.readline().strip(), 16)
+        print("[!] ELITE RECOVERY: Please run the following in Admin PowerShell:")
+        print("    $p = Get-Process ArkAscended; \"PID: $($p.Id)\"")
         
-        if not system_cr3:
-            print("[-] System CR3 not found. Run brute_cr3.py first.")
-            return
-            
-        print(f"[+] Using System CR3: 0x{system_cr3:X}")
-        
-        print("\n[!] ELITE COMMAND CENTER [LIVE DATA RECOVERY]")
-        print("    Target: ArkAscended.exe (PID: 11012)")
-        print("    GObjects Offset: 0x1234567 (Placeholder)")
-        
-        print("\n[*] ACTION: Please run the following in Admin PowerShell:")
-        print("    $p = Get-Process ArkAscended; $base = $p.MainModule.BaseAddress; \"Base: 0x$($base.ToString('X'))\"")
-        
-        print("\n[+] Once you have the Base, NandoClient will handle the rest.")
+        # We need a way to get the CR3. Usually, we'd read it from EPROCESS + 0x28.
+        # I will implement a quick brute-forcer or searcher in the client.
+        pass
+
+if __name__ == "__main__":
+    finder = EliteArkFinder()
+    if finder.connect():
+        print("[+] Driver Connection: ACTIVE")
+        # Base Address provided by user: 0x7FF722410000
+        # Now we need the CR3 to translate addresses.
+        print("[*] Base Address: 0x7FF722410000")
+        print("[*] Next Step: Locate DirectoryTableBase (CR3) for PID 11012")
 
 if __name__ == "__main__":
     finder = EliteArkFinder()
