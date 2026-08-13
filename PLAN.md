@@ -14,7 +14,8 @@
 - [x] Implement **MmCopyMemory Integration** for safe cross-process reads.
 - [x] Implement **Surgical Page Table Walking** in the stub (for Phase 3).
 - [x] Implement **Ark: Survival Ascended Structure Scanner** (Next Step).
-- [ ] EMERGENCY: Revert all hooks for main account safety.
+- [x] EMERGENCY: Revert all hooks for main account safety.
+- [x] RE-ESTABLISHED: Kernel Functionalization (Dispatcher 0x01-0x07).
 - [x] Implement **Surgical DKOM** to hide the process (Phase 4).
 - [ ] Implement **Surgical IDT Hijack** for even deeper persistence.
 - [ ] Integrate **CR3 Cache** to speed up KVA→PA translation for game memory.
