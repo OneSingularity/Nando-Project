@@ -6,9 +6,27 @@
 - [x] Implement surgical hijack of `nt!NtYieldExecution`.
 - [x] Establish trace-byte mailbox communication.
 
-## Phase 2: Kernel Functionalization
-- [ ] Implement **Surgical Physical Read/Write** primitives inside the kernel stub.
-- [ ] Implement **Process Token Stealing** (LPE) as a kernel-level command.
+## Phase 2: Kernel Functionalization (In Progress)
+- [x] Implement **Command Dispatcher** in `NandoKernel/functional_stub.py`.
+- [x] Establish **Shared Mailbox Protocol** (Cmd/Status/Args).
+- [x] Implement **Surgical Physical Read/Write** primitives inside the kernel stub.
+- [x] Implement **Process Token Stealing** (LPE) as a kernel-level command.
+- [x] Implement **MmCopyMemory Integration** for safe cross-process reads.
+- [x] Implement **Surgical Page Table Walking** in the stub (for Phase 3).
+- [x] Implement **Ark: Survival Ascended Structure Scanner** (Next Step).
+- [x] EMERGENCY: Revert all hooks for main account safety.
+- [x] RE-ESTABLISHED: Kernel Functionalization (Dispatcher 0x01-0x07).
+- [x] Implement **Surgical DKOM** to hide the process (Phase 4).
+- [x] RESEARCHED: **Surgical IDT Hijack** (Phase 5).
+- [x] Implement **Surgical IDT Hijack** in the stub (Phase 5).
+- [x] RESEARCHED: **VTL 1 / Hyper-V Interaction** (Phase 6).
+- [x] Implement **Surgical Hypercall Hook** to bypass VTL restrictions (Phase 6).
+- [x] SURGICAL FIX: Removed dangerous physical memory scans (BSOD Cause #1).
+- [x] SURGICAL FIX: Implemented r10/r11 register preservation in stub (BSOD Cause #2).
+- [x] SURGICAL FIX: Switched to absolute calls for kernel functions (BSOD Cause #3).
+- [x] SURGICAL FIX: Resolved Mapping Exhaustion / PFN Corrupt (BSOD Cause #4).
+- [ ] TEST: **Ark Single Player Integration** (Executing Phoenix Strike).
+- [ ] Implement **Surgical UEFI DXE Driver** for pre-boot persistence.
 - [ ] Integrate **CR3 Cache** to speed up KVA→PA translation for game memory.
 
 ## Phase 3: Ark: Survival Ascended Integration
