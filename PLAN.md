@@ -24,7 +24,7 @@
 - [x] SURGICAL FIX: Removed dangerous physical memory scans (BSOD Cause #1).
 - [x] SURGICAL FIX: Implemented r10/r11 register preservation in stub (BSOD Cause #2).
 - [x] SURGICAL FIX: Switched to absolute calls for kernel functions (BSOD Cause #3).
-- [ ] TEST: **Ark Single Player Integration** (Executing safe_strike.py).
+- [ ] TEST: **Ark Single Player Integration** (Executing Elite Finder Strike).
 - [ ] Implement **Surgical UEFI DXE Driver** for pre-boot persistence.
 - [ ] Integrate **CR3 Cache** to speed up KVA→PA translation for game memory.
 
