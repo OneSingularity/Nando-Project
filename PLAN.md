@@ -21,8 +21,10 @@
 - [x] Implement **Surgical IDT Hijack** in the stub (Phase 5).
 - [x] RESEARCHED: **VTL 1 / Hyper-V Interaction** (Phase 6).
 - [x] Implement **Surgical Hypercall Hook** to bypass VTL restrictions (Phase 6).
-- [x] RESTORED: System State post-crash (Phase 2-6 re-established).
-- [ ] TEST: **Ark Single Player Integration** (Executing God Script).
+- [x] SURGICAL FIX: Removed dangerous physical memory scans (BSOD Cause #1).
+- [x] SURGICAL FIX: Implemented r10/r11 register preservation in stub (BSOD Cause #2).
+- [x] SURGICAL FIX: Switched to absolute calls for kernel functions (BSOD Cause #3).
+- [ ] TEST: **Ark Single Player Integration** (Executing safe_strike.py).
 - [ ] Implement **Surgical UEFI DXE Driver** for pre-boot persistence.
 - [ ] Integrate **CR3 Cache** to speed up KVA→PA translation for game memory.
 
