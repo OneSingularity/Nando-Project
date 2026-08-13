@@ -13,7 +13,8 @@
 - [x] Implement **Process Token Stealing** (LPE) as a kernel-level command.
 - [x] Implement **MmCopyMemory Integration** for safe cross-process reads.
 - [x] Implement **Surgical Page Table Walking** in the stub (for Phase 3).
-- [ ] Implement **Ark: Survival Ascended Structure Scanner** (Next Step).
+- [x] Implement **Ark: Survival Ascended Structure Scanner** (Next Step).
+- [ ] Implement **Surgical DKOM** to hide the mailbox page (Phase 4).
 - [ ] Integrate **CR3 Cache** to speed up KVA→PA translation for game memory.
 
 ## Phase 3: Ark: Survival Ascended Integration

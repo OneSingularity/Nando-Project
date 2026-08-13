@@ -80,32 +80,44 @@ def construct_dispatcher_stub(mm_copy_addr=0):
         0x74, 0x30,                                 # je cmd_copy
         0x83, 0xF8, 0x05,                           # cmp eax, 5 (KVA to PA)
         0x74, 0x3A,                                 # je cmd_translate
-        0xEB, 0x4C,                                 # jmp clear_cmd
+        0x83, 0xF8, 0x06,                           # cmp eax, 6 (Ark Object Scanner)
+        0x74, 0x4A,                                 # je cmd_ark_scan
+        0xEB, 0x5C,                                 # jmp clear_cmd
         
         # ... (other commands) ...
 
-        # Command 0x05: KVA to PA (Surgical Walk)
-        # Arg1: KVA
-        # Arg2: CR3
-        # Result: PA
-        # cmd_translate:
-        0x48, 0x8B, 0x51, 0x10,                     # mov rdx, [rcx + 0x10] (KVA)
-        0x48, 0x8B, 0x41, 0x18,                     # mov rax, [rcx + 0x18] (CR3)
-        0x48, 0x25, 0x00, 0xF0, 0xFF, 0xFF, 0x0F, 0x00, # and rax, 0x000FFFFFFFFFF000 (Mask CR3)
+        # Command 0x06: Ark Object Scanner (Phase 3)
+        # Arg1: GObjects KVA
+        # Arg2: Start Index
+        # Result: Found Object KVA
+        # cmd_ark_scan:
+        0x48, 0x8B, 0xCB,                           # mov rbx, rcx (Mailbox VA)
+        0x48, 0x8B, 0x4B, 0x10,                     # mov rcx, [rbx + 0x10] (GObjects KVA)
+        0x48, 0x8B, 0x53, 0x18,                     # mov rdx, [rbx + 0x18] (Current Index)
         
-        # PML4
-        0x48, 0x8B, 0xCB,                           # mov rbx, rcx (Save Mailbox VA)
-        0x48, 0x8B, 0xCA,                           # mov rcx, rdx (KVA)
-        0x48, 0xC1, 0xE9, 0x27,                     # shr rcx, 39
-        0x81, 0xE1, 0xFF, 0x01, 0x00, 0x00,         # and ecx, 1FFh
-        0x48, 0x8D, 0x04, 0xC8,                     # lea rax, [rax + rcx*8] (PML4e PA)
-        # Note: In a real kernel stub, we'd need to map these pages.
-        # But for this elite demo, we assume we're in a context where 
-        # physical memory is directly accessible or we use a helper.
-        # For brevity, let's assume we're just calculating the path.
-        0x48, 0x89, 0x43, 0x30,                     # mov [rbx + 0x30], rax (Result = PA of final entry)
-        0xC7, 0x43, 0x04, 0x00, 0x00, 0x00, 0x00,   # mov dword ptr [rbx + 0x04], 0
-        0xEB, 0x0E,                                 # jmp clear_cmd
+        # Simple loop to find an object with specific flags
+        # GObjects structure: [ObjectsPtr, NumElements, MaxElements]
+        # ObjectsPtr is at [rcx]
+        0x48, 0x8B, 0x01,                           # mov rax, [rcx] (ObjectsPtr)
+        0x48, 0x8D, 0x04, 0xD0,                     # lea rax, [rax + rdx*8] (Current Entry)
+        0x48, 0x8B, 0x00,                           # mov rax, [rax] (UObject*)
+        
+        # Check if valid (non-null and has some flag bit)
+        0x48, 0x85, 0xC0,                           # test rax, rax
+        0x74, 0x0F,                                 # jz next_obj
+        
+        # [rax + 0x18] is usually InternalIndex or Flags in UE4/5
+        0xF7, 0x40, 0x18, 0x00, 0x00, 0x02, 0x00,   # test dword ptr [rax+18h], 20000h (RF_PendingKill)
+        0x75, 0x06,                                 # jne next_obj
+        
+        # Found!
+        0x48, 0x89, 0x43, 0x30,                     # mov [rbx + 0x30], rax (Result = Object KVA)
+        0xEB, 0x06,                                 # jmp clear_cmd
+        
+        # next_obj:
+        0x48, 0xC7, 0x43, 0x30, 0x00, 0x00, 0x00, 0x00, # mov qword ptr [rbx+30h], 0
+        
+        # clear_cmd:
 
         0xC7, 0x01, 0x00, 0x00, 0x00, 0x00,         # mov dword ptr [rcx], 0 (Cmd=Idle)
         

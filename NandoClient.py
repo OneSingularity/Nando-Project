@@ -75,6 +75,14 @@ class NandoClient:
             
         raise Exception("[-] Command timed out")
 
+    def ark_scan_objects(self, gobjects_kva, start_index=0):
+        """
+        Uses Command 0x06 for kernel-side Ark object scanning.
+        """
+        status, obj_kva = self.send_command(6, gobjects_kva, start_index)
+        if status == 0: return obj_kva
+        return None
+
     def translate_kva(self, kva, cr3):
         """
         Uses Command 0x05 for kernel-side VA to PA translation.
