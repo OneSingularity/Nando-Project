@@ -21,7 +21,7 @@
 - [x] Implement **Surgical IDT Hijack** in the stub (Phase 5).
 - [x] RESEARCHED: **VTL 1 / Hyper-V Interaction** (Phase 6).
 - [x] Implement **Surgical Hypercall Hook** to bypass VTL restrictions (Phase 6).
-- [ ] TEST: **Ark Single Player Integration** (Installing driver service).
+- [ ] TEST: **Ark Single Player Integration** (Locating .sys file).
 - [ ] Implement **Surgical UEFI DXE Driver** for pre-boot persistence.
 - [ ] Integrate **CR3 Cache** to speed up KVA→PA translation for game memory.
 
