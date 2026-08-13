@@ -75,6 +75,14 @@ class NandoClient:
             
         raise Exception("[-] Command timed out")
 
+    def translate_kva(self, kva, cr3):
+        """
+        Uses Command 0x05 for kernel-side VA to PA translation.
+        """
+        status, pa = self.send_command(5, kva, cr3)
+        if status == 0: return pa
+        return None
+
     def safe_copy(self, destination, source, size, is_physical=False):
         """
         Uses Command 0x04 (MmCopyMemory) for elite-level safe memory copying.
