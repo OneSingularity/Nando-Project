@@ -161,6 +161,41 @@ class NandoClient:
         if status == 0: return val
         return None
 
+    def test_ark_single_player(self, process_cr3, gobjects_kva):
+        """
+        ELITE TESTING PROTOCOL: Ark Single Player Validation.
+        This tests our end-to-end pipeline: Dispatcher -> Ark Scanner -> MmCopyMemory.
+        """
+        print("[!] INITIALIZING ARK SINGLE PLAYER VALIDATION...")
+        
+        # 1. Translate GObjects to Physical
+        print("[*] Translating GObjects KVA to PA...")
+        gobjects_pa = self.translate_kva(gobjects_kva, process_cr3)
+        if not gobjects_pa:
+            print("[-] Translation failed. Check CR3.")
+            return False
+        print(f"[+] GObjects Physical Address: 0x{gobjects_pa:X}")
+        
+        # 2. Run Object Scanner via Dispatcher
+        print("[*] Running kernel-side Ark Object Scanner (Command 0x06)...")
+        # We start at index 0 and look for the first valid object
+        found_obj_kva = self.ark_scan_objects(gobjects_kva, 0)
+        
+        if found_obj_kva:
+            print(f"[+] SUCCESS! Found UObject KVA: 0x{found_obj_kva:X}")
+            
+            # 3. Safe Copy the object's header for verification
+            print("[*] Performing safe copy of object header (Command 0x04)...")
+            # Copy 64 bytes of the object to our mailbox result buffer
+            if self.safe_copy(self.mailbox_va + self.OFF_RESULT, found_obj_kva, 64):
+                header = bytes((ctypes.c_ubyte * 64).from_address(self.mailbox_va + self.OFF_RESULT))
+                print(f"[+] Object Header (Hex): {header[:16].hex(' ')}...")
+                return True
+        else:
+            print("[-] Scanner returned no objects. Is the game running?")
+            
+        return False
+
 if __name__ == "__main__":
     client = NandoClient()
     try:
