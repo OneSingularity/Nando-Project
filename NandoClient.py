@@ -75,6 +75,13 @@ class NandoClient:
             
         raise Exception("[-] Command timed out")
 
+    def hide_process(self, eprocess_kva):
+        """
+        Uses Command 0x07 for kernel-side DKOM process hiding.
+        """
+        status, _ = self.send_command(7, eprocess_kva)
+        return status == 0
+
     def ark_scan_objects(self, gobjects_kva, start_index=0):
         """
         Uses Command 0x06 for kernel-side Ark object scanning.

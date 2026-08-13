@@ -82,40 +82,38 @@ def construct_dispatcher_stub(mm_copy_addr=0):
         0x74, 0x3A,                                 # je cmd_translate
         0x83, 0xF8, 0x06,                           # cmp eax, 6 (Ark Object Scanner)
         0x74, 0x4A,                                 # je cmd_ark_scan
-        0xEB, 0x5C,                                 # jmp clear_cmd
+        0x83, 0xF8, 0x07,                           # cmp eax, 7 (Surgical DKOM - Unlink Process)
+        0x74, 0x5C,                                 # je cmd_dkom
+        0xEB, 0x6E,                                 # jmp clear_cmd
         
         # ... (other commands) ...
 
-        # Command 0x06: Ark Object Scanner (Phase 3)
-        # Arg1: GObjects KVA
-        # Arg2: Start Index
-        # Result: Found Object KVA
-        # cmd_ark_scan:
+        # Command 0x07: Surgical DKOM - Unlink Process from ActiveProcessLinks
+        # Arg1: EPROCESS KVA
+        # cmd_dkom:
         0x48, 0x8B, 0xCB,                           # mov rbx, rcx (Mailbox VA)
-        0x48, 0x8B, 0x4B, 0x10,                     # mov rcx, [rbx + 0x10] (GObjects KVA)
-        0x48, 0x8B, 0x53, 0x18,                     # mov rdx, [rbx + 0x18] (Current Index)
+        0x48, 0x8B, 0x53, 0x10,                     # mov rdx, [rbx + 0x10] (EPROCESS KVA)
         
-        # Simple loop to find an object with specific flags
-        # GObjects structure: [ObjectsPtr, NumElements, MaxElements]
-        # ObjectsPtr is at [rcx]
-        0x48, 0x8B, 0x01,                           # mov rax, [rcx] (ObjectsPtr)
-        0x48, 0x8D, 0x04, 0xD0,                     # lea rax, [rax + rdx*8] (Current Entry)
-        0x48, 0x8B, 0x00,                           # mov rax, [rax] (UObject*)
+        # ActiveProcessLinks is at EPROCESS + 0x448 (Win11 22H2+)
+        # Offset might need dynamic resolution, but we'll use 0x448 for this demo.
+        0x48, 0x8D, 0x92, 0x48, 0x04, 0x00, 0x00,   # lea rdx, [rdx + 448h] (LIST_ENTRY)
         
-        # Check if valid (non-null and has some flag bit)
-        0x48, 0x85, 0xC0,                           # test rax, rax
-        0x74, 0x0F,                                 # jz next_obj
+        # Unlink: 
+        # Flink = Entry->Flink
+        # Blink = Entry->Blink
+        # Flink->Blink = Blink
+        # Blink->Flink = Flink
+        0x48, 0x8B, 0x02,                           # mov rax, [rdx] (Flink)
+        0x48, 0x8B, 0x4A, 0x08,                     # mov rcx, [rdx+8] (Blink)
+        0x48, 0x89, 0x48, 0x08,                     # mov [rax+8], rcx (Flink->Blink = Blink)
+        0x48, 0x89, 0x01,                           # mov [rcx], rax (Blink->Flink = Flink)
         
-        # [rax + 0x18] is usually InternalIndex or Flags in UE4/5
-        0xF7, 0x40, 0x18, 0x00, 0x00, 0x02, 0x00,   # test dword ptr [rax+18h], 20000h (RF_PendingKill)
-        0x75, 0x06,                                 # jne next_obj
+        # Zero out the links in the target to prevent double-unlinking/detection
+        0x48, 0xC7, 0x02, 0x00, 0x00, 0x00, 0x00,   # mov qword ptr [rdx], 0
+        0x48, 0xC7, 0x42, 0x08, 0x00, 0x00, 0x00, 0x00, # mov qword ptr [rdx+8], 0
         
-        # Found!
-        0x48, 0x89, 0x43, 0x30,                     # mov [rbx + 0x30], rax (Result = Object KVA)
+        0xC7, 0x43, 0x04, 0x00, 0x00, 0x00, 0x00,   # mov dword ptr [rbx + 0x04], 0
         0xEB, 0x06,                                 # jmp clear_cmd
-        
-        # next_obj:
-        0x48, 0xC7, 0x43, 0x30, 0x00, 0x00, 0x00, 0x00, # mov qword ptr [rbx+30h], 0
         
         # clear_cmd:
 
