@@ -6,9 +6,11 @@
 - [x] Implement surgical hijack of `nt!NtYieldExecution`.
 - [x] Establish trace-byte mailbox communication.
 
-## Phase 2: Kernel Functionalization
-- [ ] Implement **Surgical Physical Read/Write** primitives inside the kernel stub.
-- [ ] Implement **Process Token Stealing** (LPE) as a kernel-level command.
+## Phase 2: Kernel Functionalization (In Progress)
+- [x] Implement **Command Dispatcher** in `NandoKernel/functional_stub.py`.
+- [x] Establish **Shared Mailbox Protocol** (Cmd/Status/Args).
+- [ ] Implement **Surgical Physical Read/Write** primitives inside the kernel stub (Next Step).
+- [x] Implement **Process Token Stealing** (LPE) as a kernel-level command.
 - [ ] Integrate **CR3 Cache** to speed up KVA→PA translation for game memory.
 
 ## Phase 3: Ark: Survival Ascended Integration

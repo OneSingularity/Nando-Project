@@ -23,4 +23,6 @@ def diag(pa):
     kernel32.CloseHandle(h)
 
 if __name__ == "__main__":
-    diag(0x1AE000)
+    diag(0x1007111D0) # Check hook and surrounding
+    diag(0x1007111E0) # Check cave area
+    diag(0x100711200) # Check further down
